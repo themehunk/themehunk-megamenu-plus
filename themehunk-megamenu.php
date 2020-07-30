@@ -5,7 +5,6 @@
  * Description: Megamenu plugin from Themehunk.
  * Version:     1.0.0
  * Author:      Themehunk
- * Author URI:  https://themehunk.com
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: themehunk-megamenu

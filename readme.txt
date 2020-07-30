@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: megamenu, mega menu, menu builder, custom menu
 Requires at least: 5.0
 Tested up to: 5.4.2
-Stable tag: 1.0.8
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
