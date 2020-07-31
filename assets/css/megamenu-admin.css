@@ -13,6 +13,7 @@ padding:7px 30px;
 }
 .mega-tab-content input[type=number],.themehunk-megamenu-builder-config-options-data input[type=number]{
     padding-right:0;
+    text-align: center;
 }
 /***Admin side menu items**/
 
@@ -293,6 +294,7 @@ width:150px;
 .themehunk-megamenu-builder-config-options-data table .mega-short-desc{
     display: block;
     padding-bottom: 8px;
+    text-align: center;
 }
 input.mmth-border,input.mmth-padding{
 width:65px;
@@ -735,7 +737,7 @@ font-size:22px;
 margin-bottom:10px
 }
 .themehunk_megamenu_menu_settings form.theme_editor td h5{
-font-size:14px;
+font-size:16px;
 margin:0;
 font-style:italic;
 }
@@ -748,6 +750,7 @@ font-style:italic;
 .themehunk_megamenu_menu_settings table .mega-short-desc{
 display:block;
 padding-bottom:8px;
+    text-align: center;
 }
 .megamenu_submit input#submit,input.button-primary.mmth-builder-options-submit{
 padding: 8px 20px;
@@ -993,7 +996,11 @@ label.mega-mobile_sub_menu_link_color,
 label.mega-mobile_sub_menu_link_hvr_color,
 label.mega-mobile_sub_menu_hide,
 label.mega-mobile-open-toggle-icon,
-label.mega-mobile-close-toggle-icon{
+label.mega-mobile-close-toggle-icon,
+label.mmth-mega-widget-title-color,
+label.mmth-mega-widget-text-color,
+label.mmth-mega-widget-link-color,
+label.mmth-mega-widget-linkhvr-color,label.mmth-mega-bg-color{
 width: 100%;
 -js-display: flex;
     display: -webkit-box;
@@ -1038,7 +1045,16 @@ width: 100%;
 .mega-mobile_sub_menu_hide .mega-short-desc,
 .mega-mobile-open-toggle-icon .mega-short-desc,
 .mega-mobile-close-toggle-icon .mega-short-desc,
-.mega-mobile-close-toggle-icon .mega-short-desc{
+.mega-mobile-close-toggle-icon .mega-short-desc,
+.mmth-mega-widget-title-color .mega-short-desc,
+.mmth-mega-widget-text-color .mega-short-desc,
+.mmth-mega-widget-link-color .mega-short-desc,
+.mmth-mega-widget-linkhvr-color .mega-short-desc,.mmth-mega-bg-color .mega-short-desc{
 padding-bottom:0!important;
     margin-right: 8px;
+}
+
+.mega-sub_menu_items,.mega-mobile_sub_menu_items{
+background: #45b6e6;
+color: #fff;
 }

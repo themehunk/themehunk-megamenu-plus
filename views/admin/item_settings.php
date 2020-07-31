@@ -140,11 +140,11 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 						<table>
 						  <tr>
 						    <td class="mmth-name">
-						    	<?php _e('Panel', 'themehunk-megamenu') ?>
+						    	<?php _e('Panel Width (px, %, em)', 'themehunk-megamenu') ?>
 						    </td>
 						    <td class="mmth-sett-optn">
 						    	<input type="hidden" name="menu_item_id" value="<?php echo $menu_item_id; ?>">
-						    	<span class="mega-short-desc"><?php  _e('Width (px, %, em)', 'themehunk-megamenu');?></span>
+						    	
 						    	<input type="text" name="themehunk_megamenu_width" value="<?php echo isset( ( $mmth_builder_option['themehunk_megamenu_width'] ) ) ? $mmth_builder_option['themehunk_megamenu_width'] : '100%'; ?>">
 						    </td>
 						    
@@ -155,7 +155,7 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
                                <?php _e('Panel fit to End-to-End', 'themehunk-megamenu') ?>
                            </td>
 						  <td class="mmth-sett-optn">
-						            <span class="mega-short-desc"><?php  _e('Enable', 'themehunk-megamenu');?></span>
+						            
 						    	<input type="checkbox" id="themehunk_megamenu_endtoend" name="themehunk_megamenu_endtoend" value="end-to-end" <?php if($mmth_builder_option['themehunk_megamenu_endtoend']=="end-to-end") echo "checked"; ?>>
 						    </td>
 						</tr>
@@ -213,30 +213,30 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 						  </tr>
 						  <tr>
 						  	<td class="mmth-name">
-						  		<?php _e('Panel Padding', 'themehunk-megamenu'); ?>
+						  		<?php _e('Panel Padding (px)', 'themehunk-megamenu'); ?>
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-pannel-top-padding">
-						  			<span class="mega-short-desc"><?php  _e('Top (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_top']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-right-padding">
-						  			<span class="mega-short-desc"><?php  _e('Right (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_right']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-padding">
-						  			<span class="mega-short-desc"><?php  _e('Bottom (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
 						  				<input class="themehunk_megamenu_mega_pannel_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_bottom']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-left-padding">
-						  			<span class="mega-short-desc"><?php  _e('Left (px)', 'themehunk-megamenu');?> </span>
+						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
 						  			<input class="themehunk_megamenu_mega_pannel_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_left']; ?>">
 						  		</label>
 						  	</td>
 						  </tr>
 						  <tr>
 						  	<td class="mmth-name">
-						  		<?php _e('Border', 'themehunk-megamenu'); ?>
+						  		<?php _e('Border (px)', 'themehunk-megamenu'); ?>
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-border-color">
@@ -245,53 +245,53 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 						  		</label>
 						 
 						  		<label class="mmth-mega-pannel-top-border">
-						  			<span class="mega-short-desc"><?php  _e('Top (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_border_top mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_top']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-right-border">
-						  			<span class="mega-short-desc"><?php  _e('Right (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_border_right mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_right']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-border">
-						  			<span class="mega-short-desc"><?php  _e('Bottom (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
 						  				<input class="themehunk_megamenu_mega_pannel_border_bottom mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_bottom']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-left-border">
-						  			<span class="mega-short-desc"><?php  _e('Left (px)', 'themehunk-megamenu');?> </span>
+						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
 						  			<input class="themehunk_megamenu_mega_pannel_border_left mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_left']; ?>">
 						  		</label>
 						  	</td>
 						  </tr>
 						  <tr>
 						  	<td class="mmth-name">
-						  		<?php _e('Border Radius', 'themehunk-megamenu'); ?>
+						  		<?php _e('Border Radius (px)', 'themehunk-megamenu'); ?>
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-pannel-top-left-radius">
-						  			<span class="mega-short-desc"><?php  _e('Top (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_left']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-top-right-radius">
-						  			<span class="mega-short-desc"><?php  _e('Right (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_right']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-right-radius">
-						  			<span class="mega-short-desc"><?php  _e('Bottom (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
 						  				<input class="themehunk_megamenu_mega_pannel_raidus_bottom_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_right']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-left-radius">
-						  			<span class="mega-short-desc"><?php  _e('Left (px)', 'themehunk-megamenu');?> </span>
+						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
 						  			<input class="themehunk_megamenu_mega_pannel_raidus_bottom_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_left']; ?>">
 						  		</label>
 						  	</td>
 						  </tr>
 						  <tr>
 						  	<td class="mmth-name">
-						  		<?php _e('Column Padding', 'themehunk-megamenu'); ?>
+						  		<?php _e('Column Padding (px)', 'themehunk-megamenu'); ?>
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-column-top-padding">
-						  			<span class="mega-short-desc"><?php  _e('Top (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
 						  			<input class="themehunk_megamenu_mega_column_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_top']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-column-right-padding">
@@ -299,11 +299,11 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 						  			<input class="themehunk_megamenu_mega_column_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_right']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-column-bottom-padding">
-						  			<span class="mega-short-desc"><?php  _e('Bottom (px)', 'themehunk-megamenu');?></span>
+						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
 						  				<input class="themehunk_megamenu_mega_column_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_bottom']; ?>">
 						  		</label>
 						  		<label class="mmth-mega-column-left-padding">
-						  			<span class="mega-short-desc"><?php  _e('Left (px)', 'themehunk-megamenu');?> </span>
+						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
 						  			<input class="themehunk_megamenu_mega_column_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_left']; ?>">
 						  		</label>
 						  	</td>

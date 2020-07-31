@@ -55,7 +55,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         $icon = 'dashicons-tagcloud';
 
-        $page = add_menu_page( __('ThemeHunk MegaMenu', 'themehunk-megamenu'), __('ThemeHunk MegaMenu', 'themehunk-megamenu'), 'edit_theme_options', 'themehunkmegamenu', array($this, 'page'), $icon );
+        $page = add_menu_page( __('TH MegaMenu', 'themehunk-megamenu'), __('TH MegaMenu', 'themehunk-megamenu'), 'edit_theme_options', 'themehunkmegamenu', array($this, 'page'), $icon );
 
 
        
@@ -412,12 +412,12 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                                 'description' =>'',
                                                                 'settings' => array(
                                                                     array(
-                                                                        'title' => __( "Bg Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'menu_link_bg_color'
                                                                     ),
                                                                     array(
-                                                                        'title' => __( "Bg Hover Color / Bg Current Item Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Hover Color / Background Current Item Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'menu_link_hvr_bg_color'
                                                                     ),
@@ -464,12 +464,12 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                             ),
                                                              'sub_menu_link_bg_color' => array(
                                                                 'priority' => 12,
-                                                                'title' => __( "Menu Link Bg Color", "themehunk-megamenu" ),
+                                                                'title' => __( "Menu Link Background Color", "themehunk-megamenu" ),
                                                                 'description' =>'',
                                                                 'settings' => array(
                                                                     
                                                                     array(
-                                                                        'title' => __( "Bg Hover Color / Bg Current Item Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Hover Color / Background Current Item Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'sub_menu_hvr_bg_color'
                                                                     ),
@@ -648,7 +648,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                             'description' => '',
                                                             'settings' => array(
                                                                 array(
-                                                                        'title' => __( "Bg Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'toggle_bg_color'
                                                                     ),
@@ -715,7 +715,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                             'description' => '',
                                                             'settings' => array(
                                                                 array(
-                                                                        'title' => __( "Bg Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'mobile_menu_bg_color'
                                                                     ),
@@ -723,16 +723,16 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                         ),
                                                        'mobile_menu_link_bg_color' => array(
                                                                 'priority' => 10,
-                                                                'title' => __( "Menu Link Bg Color", "themehunk-megamenu" ),
+                                                                'title' => __( "Menu Link Background Color", "themehunk-megamenu" ),
                                                                 'description' =>'',
                                                                 'settings' => array(
                                                                     array(
-                                                                        'title' => __( "Bg Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'mobile_menu_link_bg_color'
                                                                     ),
                                                                     array(
-                                                                        'title' => __( "Bg hover color / Bg Current Item Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background hover color / Background Current Item Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'mobile_menu_hvr_bg_color'
                                                                     ),
@@ -777,16 +777,16 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                             ),
                                                            'mobile_sub_menu_bg_link_color' => array(
                                                                 'priority' => 12,
-                                                                'title' => __( "Menu Link Bg Color", "themehunk-megamenu" ),
+                                                                'title' => __( "Menu Link Background Color", "themehunk-megamenu" ),
                                                                 'description' =>'',
                                                                 'settings' => array(
                                                                     array(
-                                                                        'title' => __( "Bg Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'mobile_sub_menu_bg_link_color'
                                                                     ),
                                                                     array(
-                                                                        'title' => __( "Bg Hover Color / Current Item Color", "themehunk-megamenu" ),
+                                                                        'title' => __( "Background Hover Color / Current Item Color", "themehunk-megamenu" ),
                                                                         'type' => 'color',
                                                                         'key' => 'mobile_sub_menu_bg_link_hvr_color'
                                                                     ),
