@@ -408,7 +408,9 @@ body.themehunk-megamenu-menu .primary-menu ul ul {
     float: inherit;
     display: inline-flex;
 }
-
+.themehunk-megamenu .themehunk-megamenu-menu-item button{   
+    display:none;   
+}
 /***********************/
 /*mega menu widget css*/
 /***********************/
@@ -422,13 +424,15 @@ body.themehunk-megamenu-menu .primary-menu ul ul {
 width:150px;
 border-radius:0;
 border:0;
+height: 30px;
 }
 .mega-sub-menu-themehunk-megamenu .form-content,
+.mega-sub-menu-themehunk-megamenu .search-form,
 .mega-sub-menu-themehunk-megamenu .woocommerce-product-search{
     display: flex;
     align-items: flex-start
 }
-.mega-sub-menu-themehunk-megamenu #searchform [type="submit"],
+.mega-sub-menu-themehunk-megamenu .search-form [type="submit"],
 .mega-sub-menu-themehunk-megamenu .woocommerce-product-search [type="submit"] {
     line-height: 30px;
     font-size: 13px;
@@ -437,6 +441,7 @@ border:0;
     background: #141415;
     color: #fff;
     border-radius: 0;
+    display: block;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
