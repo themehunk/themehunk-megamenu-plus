@@ -414,33 +414,57 @@ body.themehunk-megamenu-menu .primary-menu ul ul {
 /***********************/
 /*mega menu widget css*/
 /***********************/
-.mega-sub-menu-themehunk-megamenu input[type="text"], 
-.mega-sub-menu-themehunk-megamenu input[type="email"], 
-.mega-sub-menu-themehunk-megamenu input[type="url"],
- .mega-sub-menu-themehunk-megamenu textarea,
-  .mega-sub-menu-themehunk-megamenu input[type="password"],
-   .mega-sub-menu-themehunk-megamenu input[type="tel"],
-    .mega-sub-menu-themehunk-megamenu input[type="search"]{
+.themehunk-megamenu-is-megamenu input[type="text"], 
+.themehunk-megamenu-is-megamenu input[type="email"], 
+.themehunk-megamenu-is-megamenu input[type="url"],
+.themehunk-megamenu-is-megamenu input[type="password"],
+.themehunk-megamenu-is-megamenu input[type="tel"],
+.themehunk-megamenu-is-megamenu input[type="search"]{
 width:150px;
-border-radius:0;
-border:0;
-height: 30px;
+border-radius:0!important;
+border:1px solid #eee;
+height: 35px;
+line-height:35px;
+padding: 8px;
+outline-offset: 0;
+font-size:13px;
 }
-.mega-sub-menu-themehunk-megamenu .form-content,
-.mega-sub-menu-themehunk-megamenu .search-form,
-.mega-sub-menu-themehunk-megamenu .woocommerce-product-search{
+.themehunk-megamenu-is-megamenu textarea{
+   width:150px;
+border-radius:0!important;
+border:1px solid #eee; 
+padding: 8px;
+outline-offset: 0;
+font-size:13px;
+}
+.themehunk-megamenu-is-megamenu select {
+width: 100%;
+    padding: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid #eee;
+    font-size: 15px;
+    line-height: 35px;
+    height: 35px;
+    font-size:13px;
+}
+.themehunk-megamenu-is-megamenu .form-content,
+.themehunk-megamenu-is-megamenu .search-form,
+.themehunk-megamenu-is-megamenu .woocommerce-product-search{
     display: flex;
     align-items: flex-start
 }
-.mega-sub-menu-themehunk-megamenu .search-form [type="submit"],
-.mega-sub-menu-themehunk-megamenu .woocommerce-product-search [type="submit"] {
-    line-height: 30px;
+.themehunk-megamenu-is-megamenu .search-form [type="submit"],
+.themehunk-megamenu-is-megamenu #searchform [type="submit"],
+.themehunk-megamenu-is-megamenu .woocommerce-product-search [type="submit"] {
+    line-height: 35px!important;
+    height:35px!important;
     font-size: 13px;
     padding: 0px 12px;
-    border: 0;
+    border: 0!important;
     background: #141415;
     color: #fff;
-    border-radius: 0;
+    border-radius: 0!important;
     display: block;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
@@ -448,7 +472,43 @@ height: 30px;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-
+/*product list style*/
+.themehunk-megamenu-is-megamenu ul.product_list_widget li {
+    display: flow-root;
+    padding-bottom: 7px;
+    margin-bottom: 7px;
+    border-bottom: 1px dotted;
+}
+.themehunk-megamenu-is-megamenu ul.product_list_widget li:last-child{
+border-bottom:none;
+}
+.themehunk-megamenu-is-megamenu ul.product_list_widget li img {
+    float: left;
+    width: 65px;
+    margin-left: 0;
+    margin-right: 15px;
+}
+.themehunk-megamenu-is-megamenu ul.product_list_widget li span.product-title {
+    overflow: hidden;
+    display:block;;
+    line-height: 21px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+/*tag cloud*/
+.themehunk-megamenu-is-megamenu .tagcloud a{
+    width:auto!important;
+background: #f7f7f7 none repeat scroll 0 0;
+    display: inline-block;
+    padding:8px;
+    text-transform: capitalize;
+    font-size: 13px !important;
+    margin: 0 4px 8px 0;
+    border-radius:0;
+    -webkit-border-radius:0;
+    -khtml-border-radius:0;
+    -moz-border-radius:0;
+}
 /*gallery style*/
 .mega-sub-menu-themehunk-megamenu .gallery:after {content:"";display:table;clear:both;}
 

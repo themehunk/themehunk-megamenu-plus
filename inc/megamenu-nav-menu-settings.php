@@ -14,7 +14,7 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
     }
 
     public function themehunk_megamenu_themes_meta_box( ){ 
-        include_once( THMM_DIR . 'inc/megamenu-nav-menu-metadata.php' );
+        include_once( THEMEHUNK_MEGAMENU_DIR . 'inc/megamenu-nav-menu-metadata.php' );
     }
 
     public function themehunk_megamenu_nav_menu_save(){

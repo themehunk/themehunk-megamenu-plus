@@ -68,17 +68,17 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      */
     public function enqueue_scripts(){
 
-              wp_enqueue_style( 'spectrum', THMM_URL . 'lib/spectrum/spectrum.css', false, THMM_VERSION );
-              wp_enqueue_style( 'codemirror', THMM_URL . 'lib/codemirror/codemirror.css', false, THMM_VERSION);
-              wp_enqueue_style( 'pickr-classic', THMM_URL . 'lib/pickr/css/classic.min.css', false, THMM_VERSION);
-              wp_enqueue_style( 'pickr-monolith', THMM_URL . 'lib/pickr/css/monolith.min.css', false, THMM_VERSION);
-              wp_enqueue_style( 'pickr-nano', THMM_URL . 'lib/pickr/css/nano.min.css', false, THMM_VERSION);
-              wp_enqueue_style( 'select-css', THMM_URL . 'lib/select/select.css', false, THMM_VERSION);
-              wp_enqueue_script( 'select-js', THMM_URL . 'lib/select/select.min.js', array( 'jquery' ), THMM_VERSION );
-              wp_enqueue_script( 'pickr-js', THMM_URL . 'lib/pickr/js/pickr.min.js', array( 'jquery' ), THMM_VERSION,true);
-              wp_enqueue_script( 'mega-menu-theme-editor', THMM_URL . 'assets/js/settings.js', array( 'jquery' ), THMM_VERSION,true);
-              wp_enqueue_script( 'spectrum', THMM_URL . 'lib/spectrum/spectrum.js', array( 'jquery' ), THMM_VERSION );
-              wp_enqueue_script( 'codemirror', THMM_URL . 'lib/codemirror/codemirror.js', array( 'jquery' ), THMM_VERSION  );
+              wp_enqueue_style( 'spectrum', THEMEHUNK_MEGAMENU_URL . 'lib/spectrum/spectrum.css', false, THEMEHUNK_MEGAMENU_VERSION );
+              wp_enqueue_style( 'codemirror', THEMEHUNK_MEGAMENU_URL . 'lib/codemirror/codemirror.css', false, THEMEHUNK_MEGAMENU_VERSION);
+              wp_enqueue_style( 'pickr-classic', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/css/classic.min.css', false, THEMEHUNK_MEGAMENU_VERSION);
+              wp_enqueue_style( 'pickr-monolith', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/css/monolith.min.css', false, THEMEHUNK_MEGAMENU_VERSION);
+              wp_enqueue_style( 'pickr-nano', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/css/nano.min.css', false, THEMEHUNK_MEGAMENU_VERSION);
+              wp_enqueue_style( 'select-css', THEMEHUNK_MEGAMENU_URL . 'lib/select/select.css', false, THEMEHUNK_MEGAMENU_VERSION);
+              wp_enqueue_script( 'select-js', THEMEHUNK_MEGAMENU_URL . 'lib/select/select.min.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION );
+              wp_enqueue_script( 'pickr-js', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/js/pickr.min.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION,true);
+              wp_enqueue_script( 'mega-menu-theme-editor', THEMEHUNK_MEGAMENU_URL . 'assets/js/settings.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION,true);
+              wp_enqueue_script( 'spectrum', THEMEHUNK_MEGAMENU_URL . 'lib/spectrum/spectrum.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION );
+              wp_enqueue_script( 'codemirror', THEMEHUNK_MEGAMENU_URL . 'lib/codemirror/codemirror.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION  );
               wp_localize_script( 'spectrum', 'megamenu_spectrum_settings',
                        apply_filters("megamenu_spectrum_localisation", array())
                );
@@ -277,7 +277,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         $versions = apply_filters( "themehunk_megamenu_versions", array(
             'core' => array(
-                'version' => THMM_VERSION,
+                'version' => THEMEHUNK_MEGAMENU_VERSION,
                 'text' => __("Core version", "themehunk-megamenu")
             ),
             

@@ -9,11 +9,11 @@ $themehunk_megamenu_item_megamenu_status = get_post_meta( $menu_item_id, 'themeh
 $themehunk_megamenu_layout = get_post_meta( $menu_item_id, 'themehunk_megamenu_layout', true );
 $mmth_builder_option  = get_post_meta( $menu_item_id, 'themehunk_megamenu_builder_options', true );
 $widgets = ThemeHunk_MegaMenu_Widgets::themehunk_megamenu_get_all_registered_widgets();	
-define('THMM_PANEL_LEFT', THMM_URL . 'assets/images/panel-left.png');
-define('THMM_PANEL_RIGHT', THMM_URL . 'assets/images/panel-right.png');
-define('THMM_ALIGN_LEFT', THMM_URL . 'assets/images/left-align.png');
-define('THMM_ALIGN_CENTER', THMM_URL . 'assets/images/center-align.png');
-define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
+define('THEMEHUNK_MEGAMENU_PANEL_LEFT', THEMEHUNK_MEGAMENU_URL . 'assets/images/panel-left.png');
+define('THEMEHUNK_MEGAMENU_PANEL_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images/panel-right.png');
+define('THEMEHUNK_MEGAMENU_ALIGN_LEFT', THEMEHUNK_MEGAMENU_URL . 'assets/images/left-align.png');
+define('THEMEHUNK_MEGAMENU_ALIGN_CENTER', THEMEHUNK_MEGAMENU_URL . 'assets/images/center-align.png');
+define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images/right-align.png');
 ?>
  <div class="mmth-item-settings-top-bar"> 
  	<div class="mmth-item-settings-title">
@@ -169,11 +169,11 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 									<div class="mmth-radio-selector">
 									    <input id="panleft" type="radio" name="themehunk-megamenu-pannel-alignment" value="panleft" />
 									    
-									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panleft") echo "active"; ?>" style="background-image: url(<?php echo THMM_PANEL_LEFT ?>);" for="panleft"></label>
+									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panleft") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_LEFT ?>);" for="panleft"></label>
 
 									    <input id="panright" type="radio" name="themehunk-megamenu-pannel-alignment" value="panright" />
 									    
-									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panright") echo "active"; ?>" style="background-image: url(<?php echo THMM_PANEL_RIGHT ?>);" for="panright"></label>
+									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panright") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_RIGHT ?>);" for="panright"></label>
 									 </div>
 						  	   </label>
 						  	</td>
@@ -342,13 +342,13 @@ define('THMM_ALIGN_RIGHT', THMM_URL . 'assets/images/right-align.png');
 									<div class="mmth-radio-selector">
 										
 									    <input id="left" type="radio" name="mmth-widget-content-alignment" value="left" />
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="left") echo "active"; ?>" style="background-image: url(<?php echo THMM_ALIGN_LEFT ?>);" for="left"></label>
+									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="left") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_LEFT ?>);" for="left"></label>
 
                                         <input id="center" type="radio" name="mmth-widget-content-alignment" value="center" />
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="center") echo "active"; ?>" style="background-image: url(<?php echo THMM_ALIGN_CENTER ?>);" for="center"></label>
+									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="center") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_CENTER ?>);" for="center"></label>
 
 									    <input id="right" type="radio" name="mmth-widget-content-alignment" value="right" /> 
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="right") echo "active"; ?>" style="background-image: url(<?php echo THMM_ALIGN_RIGHT ?>);" for="right"></label>
+									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="right") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_RIGHT ?>);" for="right"></label>
 
 									    
 									 </div>

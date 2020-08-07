@@ -42,10 +42,10 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 
 		//Enqueue scripts	
 		public function themehunk_megamenu_scripts(){
-			wp_enqueue_style( 'themehunk-megamenu-style', THMM_URL. '/assets/css/megamenu.css' );
-			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THMM_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
+			wp_enqueue_style( 'themehunk-megamenu-style', THEMEHUNK_MEGAMENU_URL. '/assets/css/megamenu.css' );
+			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THEMEHUNK_MEGAMENU_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
 			wp_enqueue_script( 'hoverIntent' );
-			wp_enqueue_script( 'themehunk-megamenu-script', THMM_URL. '/assets/js/megamenu.js', 
+			wp_enqueue_script( 'themehunk-megamenu-script', THEMEHUNK_MEGAMENU_URL. '/assets/js/megamenu.js', 
 				array(
 	            'jquery')
 	        );
@@ -62,12 +62,12 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 
 		//Enqueue admin scripts
 		public function themehunk_megamenu_admin_scripts(){
-			wp_enqueue_style( 'themehunk-megamenu-admin-style', THMM_URL. '/assets/css/megamenu-admin.css' );
-			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THMM_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
+			wp_enqueue_style( 'themehunk-megamenu-admin-style', THEMEHUNK_MEGAMENU_URL. '/assets/css/megamenu-admin.css' );
+			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THEMEHUNK_MEGAMENU_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
 			
-			wp_enqueue_script( 'wp-color-picker-alpha', THMM_URL .'lib/wpcolorpicker-alpha.js', array('wp-color-picker', 'jquery'), '1.2.2', true);
+			wp_enqueue_script( 'wp-color-picker-alpha', THEMEHUNK_MEGAMENU_URL .'lib/wpcolorpicker-alpha.js', array('wp-color-picker', 'jquery'), '1.2.2', true);
 			wp_enqueue_media();
-			wp_enqueue_script( 'themehunk-megamenu-admin-script', THMM_URL. '/assets/js/megamenu-admin.js', 
+			wp_enqueue_script( 'themehunk-megamenu-admin-script', THEMEHUNK_MEGAMENU_URL. '/assets/js/megamenu-admin.js', 
 				array(
 	            'jquery',
 	            'jquery-ui-core',
@@ -193,7 +193,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 				
 			}
 
-			include THMM_DIR.'views/admin/item_settings.php';
+			include THEMEHUNK_MEGAMENU_DIR.'views/admin/item_settings.php';
 			die();
 
 		}

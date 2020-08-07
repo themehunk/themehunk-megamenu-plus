@@ -345,11 +345,11 @@ if( ! function_exists('themehunk_megamenu_share_themes_across_multisite') ) {
      */
     function themehunk_megamenu_share_themes_across_multisite(){
 
-        if ( defined('THMM_SHARE_THEMES_MULTISITE') && THMM_SHARE_THEMES_MULTISITE === false ) {
+        if ( defined('THEMEHUNK_MEGAMENU_SHARE_THEMES_MULTISITE') && THEMEHUNK_MEGAMENU_SHARE_THEMES_MULTISITE === false ) {
             return false;
         }
 
-        if ( defined('THMM_SHARE_THEMES_MULTISITE') && THMM_SHARE_THEMES_MULTISITE === true ) {
+        if ( defined('THEMEHUNK_MEGAMENU_SHARE_THEMES_MULTISITE') && THEMEHUNK_MEGAMENU_SHARE_THEMES_MULTISITE === true ) {
             return true;
         }
 
