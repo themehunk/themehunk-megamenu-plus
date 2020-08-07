@@ -425,6 +425,8 @@ width:150px;
 border-radius:0;
 border:0;
 height: 30px;
+    padding: 8px;
+    outline-offset: 0;
 }
 .mega-sub-menu-themehunk-megamenu .form-content,
 .mega-sub-menu-themehunk-megamenu .search-form,
@@ -435,6 +437,7 @@ height: 30px;
 .mega-sub-menu-themehunk-megamenu .search-form [type="submit"],
 .mega-sub-menu-themehunk-megamenu .woocommerce-product-search [type="submit"] {
     line-height: 30px;
+    height:30px;
     font-size: 13px;
     padding: 0px 12px;
     border: 0;

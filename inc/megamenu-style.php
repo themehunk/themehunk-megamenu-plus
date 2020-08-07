@@ -267,13 +267,9 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                             position: static;
                         }
                       $nav_wrapper_id  $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget{
-                        padding:10px;
+                        padding:20px;
                         }
-                      $nav_wrapper_id  $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget h4.themehunk-megamenu-item-title{
-                        font-weight:500;
-                        margin-bottom:10px;
-                        margin-top:0;
-                        }
+                     
                        $nav_wrapper_id  $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu p {
                             margin-bottom: 10px;
                         }
@@ -352,14 +348,22 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
             }
 
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget h4.themehunk-megamenu-item-title{
-            font-size:16px;
+                   font-size: 22px;
+                    line-height: 30px;
+                    margin-bottom: 20px;
+                    margin-left: 0;
+                    margin-right: 0;
+                     margin-top: 0;
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget ul{
-            list-style-type: circle;
-            padding-left: 1rem;
+            list-style-type:none;
+            padding-left:0;
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget ul li{
-                list-style-type: circle;
+                list-style-type: none;
+                    line-height: 22px;
+                    font-size: 15px;
+                    margin-bottom: 5px;
                 }
 
             .themehunk-megamenu-menu .navigation.mobile-menu-wrapper ul ul{
@@ -582,11 +586,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
           $nav_wrapper_id $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu .themehunk-megamenu-themehunk-megamenu-col{
             width:100%;
             }
-            $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget h4.themehunk-megamenu-item-title {
-                font-size: 16px;
-            margin:0;
-            line-height:40px;
-            }
+           
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget {
                 font-size: 14px;
                 font-weight: normal;
