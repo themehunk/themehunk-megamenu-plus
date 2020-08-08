@@ -11,7 +11,7 @@
                     var defaults = {
 					            event: $menu.attr("data-event"),
                                 unbind_events:"true",
-                                effect: 'slide',
+                                effect: 'fade',
 					            breakpoint: $menu.attr("data-breakpoint"),
                                 effect_mobile: $menu.attr("data-effect-mobile"),
                                 document_click: $menu.attr("data-document-click"),

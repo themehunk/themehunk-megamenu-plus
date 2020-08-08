@@ -354,6 +354,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                     margin-left: 0;
                     margin-right: 0;
                      margin-top: 0;
+                     font-weight:normal;
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget ul{
             list-style-type:none;
