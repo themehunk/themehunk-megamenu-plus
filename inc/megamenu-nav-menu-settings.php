@@ -3,13 +3,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // disable direct access.
 }
 class ThemeHunk_MegaMenu_Nav_Menu_Settings {
-	
-	public function __construct() {
-		add_action( 'load-nav-menus.php', array( $this, 'themehunk_megamenu_add_metabox_to_nav_menu_settings' ) );
-		add_action('wp_ajax_themehunk_megamenu_nav_menu_save', array($this, 'themehunk_megamenu_nav_menu_save'));
+    
+    public function __construct() {
+        add_action( 'load-nav-menus.php', array( $this, 'themehunk_megamenu_add_metabox_to_nav_menu_settings' ) );
+        add_action('wp_ajax_themehunk_megamenu_nav_menu_save', array($this, 'themehunk_megamenu_nav_menu_save'));
     }
 
-	public function themehunk_megamenu_add_metabox_to_nav_menu_settings() {
+    public function themehunk_megamenu_add_metabox_to_nav_menu_settings() {
         add_meta_box( 'themehunk-megamenu-nav-menu-metabox-set', __( 'ThemeHunk MegaMenu Setting', 'themehunk-megamenu'), array( $this, 'themehunk_megamenu_themes_meta_box' ), 'nav-menus', 'side', 'high' );
     }
 
@@ -21,9 +21,7 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
         check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
         $menu_id = (int) sanitize_text_field($_POST['menu_id']);
-        $mmth_settings_json_string = $_POST['mmth_settings'];
-        $mmth_settings_array = json_decode( stripslashes( $mmth_settings_json_string ), true );
-
+        $mmth_settings_array = json_decode( stripslashes( $_POST['mmth_settings'] ), true );
         $saved_settings = array();
 
             foreach ( $mmth_settings_array as $index => $value ) {
@@ -33,11 +31,11 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
                 preg_match_all( "/\[(.*?)\]/", $name, $matches );
 
                 if ( isset( $matches[1][0] ) && isset( $matches[1][1] ) ) {
-                    $location = $matches[1][0];
-                    $setting = $matches[1][1];
+                     $location = sanitize_key($matches[1][0]);
+                     $setting = sanitize_key($matches[1][1]);
 
-                    $saved_settings[$location][$setting] = $value['value'];
-                    $saved_settings[$location]['menu_id'] = $menu_id;
+                     $saved_settings[$location][$setting] = sanitize_key($value['value']);
+                     $saved_settings[$location]['menu_id'] = sanitize_key($menu_id);
                     
                 }
             }
@@ -59,13 +57,14 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
 
             
             $mmth_updated_option = get_option( 'themehunk_megamenu_options' );
-
             
-        wp_send_json_success( array( 'msg' => __( 'Settings saved.', 'themehunk-megamenu'), 
+        wp_send_json_success( array( 'msg' =>__( 'Settings saved.', 'themehunk-megamenu'), 
             'setting_data' => $mmth_settings_array,
             'mmth_updated_option' => $mmth_updated_option ) 
-    );
+   );
 
     }
+
+
 }
 new ThemeHunk_MegaMenu_Nav_Menu_Settings();

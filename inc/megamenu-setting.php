@@ -143,7 +143,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         check_admin_referer( 'themehunk_megamenu_save_setting' );
 
-        $theme = esc_attr( $_POST['theme_id'] );
+        $theme = $_POST['theme_id'];
 
         $saved_themes = themehunk_megamenu_menu_get_themes();
 
@@ -162,7 +162,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         do_action("themehunk_megamenu_delete_cache");
 
         if ( ! $is_ajax ) {
-            $this->redirect( admin_url( "admin.php?page=themehunkmegamenu&theme={$theme}&saved=true" ) );
+            $this->redirect( esc_url_raw(admin_url("admin.php?page=themehunkmegamenu&theme={$theme}&saved=true" )));
             return;
         }
 
@@ -232,7 +232,8 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         check_admin_referer( 'themehunk_megamenu_reset_theme' );
 
-        $theme = esc_attr( $_GET['theme_id'] );
+
+        $theme =  $_GET['theme_id'];
 
         $saved_themes = themehunk_megamenu_menu_get_themes();
 
@@ -242,7 +243,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         themehunk_megamenu_menu_save_themes( $saved_themes );
 
-        $this->redirect( admin_url( "admin.php?page=themehunkmegamenu&theme={$theme}&reset=true") );
+        $this->redirect( esc_url_raw(admin_url( "admin.php?page=themehunkmegamenu&theme={$theme}&reset=true")) );
 
     }
      /**

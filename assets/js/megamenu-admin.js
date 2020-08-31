@@ -613,7 +613,6 @@
 				themehunk_megamenu_saving_indicator('hide');
 			}
 			});
-
 	    });
 
         // AJAX Save MMTH Settings
@@ -622,7 +621,7 @@
                 $(".themehunk-megamenu-metabox .spinner").css("visibility", "visible");
 
                 var mmth_settings = JSON.stringify($("[name^='themehunk_megamenu_nav_settings']").serializeArray());
-                console.log(mmth_settings);
+                //console.log(mmth_settings);
                 // retrieve the widget settings form
                 $.post(themehunk_megamenu_obj.ajax_url, {
                     action: "themehunk_megamenu_nav_menu_save",
@@ -630,11 +629,10 @@
                     mmth_settings : mmth_settings, 
                     themehunk_megamenu_nonce: themehunk_megamenu_obj.themehunk_megamenu_nonce
                 }, function(response) {
-                     console.log(response.data);
+                    // console.log(response);
                     $(".themehunk-megamenu-metabox .spinner").css("visibility", "hidden");
                 });
             });
-
 	   /**
 	     * Launches Megamenu builder popup
 	     */

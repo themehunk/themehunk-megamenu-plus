@@ -504,7 +504,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 			$menu_item_id = (int) sanitize_text_field( $_POST['menu_item_id'] );
 			$icon 		  = sanitize_text_field( $_POST['icon'] );
 
-			$old_settings = (array) maybe_unserialize( get_post_meta($menu_item_id, 'themehunk_megamenu_builder_options', true)); 
+			$old_settings = (array) maybe_unserialize(get_post_meta($menu_item_id, 'themehunk_megamenu_builder_options', true)); 
 			$new_settings = array();
 			$new_settings['icon'] = isset( ( $icon ) ) ? $icon : '';
 			
@@ -512,9 +512,9 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 
 			update_post_meta( $menu_item_id, 'themehunk_megamenu_builder_options', $updated_settings );
 
-			$updated_data = (array) maybe_unserialize( get_post_meta($menu_item_id, 'themehunk_megamenu_builder_options', true)); 
+			$updated_data = (array) maybe_unserialize(get_post_meta($menu_item_id, 'themehunk_megamenu_builder_options', true)); 
 			
-			wp_send_json_success( array(
+			wp_send_json_success(array(
 									'menu_item_id' => $menu_item_id, 
 									'icon' => $icon, 
 									'new_settings' => $new_settings,
