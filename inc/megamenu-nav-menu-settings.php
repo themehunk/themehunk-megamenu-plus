@@ -13,7 +13,7 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
         add_meta_box( 'themehunk-megamenu-nav-menu-metabox-set', __( 'ThemeHunk MegaMenu Setting', 'themehunk-megamenu'), array( $this, 'themehunk_megamenu_themes_meta_box' ), 'nav-menus', 'side', 'high' );
     }
 
-    public function themehunk_megamenu_themes_meta_box( ){ 
+    public function themehunk_megamenu_themes_meta_box(){ 
         include_once( THEMEHUNK_MEGAMENU_DIR . 'inc/megamenu-nav-menu-metadata.php' );
     }
 
@@ -54,14 +54,11 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
                 update_option( 'themehunk_megamenu_options', $new_settings );
 
             }
-
-            
             $mmth_updated_option = get_option( 'themehunk_megamenu_options' );
-            
-        wp_send_json_success( array( 'msg' =>__( 'Settings saved.', 'themehunk-megamenu'), 
+            wp_send_json_success( array( 'msg' =>__( 'Settings saved.', 'themehunk-megamenu'), 
             'setting_data' => $mmth_settings_array,
             'mmth_updated_option' => $mmth_updated_option ) 
-   );
+        );
 
     }
 
