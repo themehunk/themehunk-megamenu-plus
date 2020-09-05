@@ -134,20 +134,20 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
     }
    
-   /**
+    /**
      * Save changes to an exiting theme.
      *
      * @since 1.0
      */
-    public function save_theme($is_ajax = false) {
+    public function save_theme($is_ajax = false){
 
-        check_admin_referer( 'themehunk_megamenu_save_setting' );
+        check_admin_referer('themehunk_megamenu_save_setting' );
 
-        $theme = $_POST['theme_id'];
+        $theme = esc_attr($_POST['theme_id']);
 
         $saved_themes = themehunk_megamenu_menu_get_themes();
 
-        if ( isset( $saved_themes[ $theme ] ) ) {
+        if ( isset( $saved_themes[ $theme ] ) ){
             unset( $saved_themes[ $theme ] );
         }
 
@@ -161,7 +161,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         do_action("themehunk_megamenu_after_theme_save");
         do_action("themehunk_megamenu_delete_cache");
 
-        if ( ! $is_ajax ) {
+        if ( ! $is_ajax ){
             $this->redirect( esc_url_raw(admin_url("admin.php?page=themehunkmegamenu&theme={$theme}&saved=true" )));
             return;
         }
@@ -173,7 +173,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      *
      * @since 2.4.1
      */
-    public function ajax_save_theme() {
+    public function ajax_save_theme(){
 
         check_ajax_referer( 'themehunk_megamenu_save_setting' );
 
@@ -192,13 +192,27 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
     }
     /**
+     * Sanitize multidimensional array
+     *
+     * @since 2.7.5
+     */
+    public function themehunk_megamenu_sanitize_array( &$array ) {
+        foreach ( $array as &$value) {   
+            if ( ! is_array( $value ) ) {
+                $value = sanitize_textarea_field( $value );
+            } else {
+                $this->themehunk_megamenu_sanitize_array( $value );
+            }
+        }
+        return $array;
+    }
+    /**
      *
      * @since 2.4.1
      */
-    public function themehunk_megamenu_get_prepared_theme_for_saving() {
-
-        $submitted_settings = $_POST['settings'];
-
+    public function themehunk_megamenu_get_prepared_theme_for_saving(){
+     if ( isset( $_POST['settings'] ) && is_array( $_POST['settings'] ) ) {
+        $submitted_settings = $this->themehunk_megamenu_sanitize_array( $_POST['settings'] );
         if ( isset( $_POST['checkboxes'] ) ) {
             foreach ( $_POST['checkboxes'] as $checkbox => $value ) {
                 if ( isset( $submitted_settings[ $checkbox ] ) ) {
@@ -216,7 +230,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         if ( isset( $submitted_settings['toggle_blocks'] ) ) {
             unset( $submitted_settings['toggle_blocks'] );
         }
-
+       }
         $theme = array_map( 'esc_attr', $submitted_settings );
 
         return $theme;
@@ -233,11 +247,11 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         check_admin_referer( 'themehunk_megamenu_reset_theme' );
 
 
-        $theme =  $_GET['theme_id'];
+        $theme =  esc_attr($_GET['theme_id']);
 
         $saved_themes = themehunk_megamenu_menu_get_themes();
 
-        if ( isset( $saved_themes[$theme] ) ) {
+        if ( isset( $saved_themes[$theme] ) ){
             unset( $saved_themes[$theme] );
         }
 
@@ -265,11 +279,11 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      */
     public function page() {
 
-        $tab = isset( $_GET['page'] ) ? substr( $_GET['page'], 12 ) : false;
+        $tab = isset( $_GET['page'] ) ? sanitize_text_field(substr( $_GET['page'], 12 )) : false;
 
         // backwards compatibility
         if ( isset ( $_GET['tab'] ) ) {
-            $tab = $_GET['tab'];
+            $tab = sanitize_text_field($_GET['tab']);
         }
 
         if ( ! $tab ) {
@@ -314,7 +328,6 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                 <div class='megamenu_head'>
                     <?php
                     do_action( "themehunk_megamenu_page_general_settings" );
-
                     ?>
                 </div>
             </div>
@@ -495,9 +508,6 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                                                    
                                                                 )
                                                             ),
-
-                                                            
-
                                                             'mobile_menu_padding' => array(
                                                             'priority' => 13,
                                                             'title' => __( "Menu Padding (px)", "themehunk-megamenu" ),
@@ -1123,7 +1133,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         ?>
 
-            <select name='settings[<?php echo $key ?>]'>
+            <select name='settings[<?php echo esc_attr($key); ?>]'>
                 <option value='left' <?php selected( $value, 'left' ); ?>><?php _e("Left", "themehunk-megamenu") ?></option>
                 <option value='center' <?php selected( $value, 'center' ); ?>><?php _e("Center", "themehunk-megamenu") ?></option>
                 <option value='right' <?php selected( $value, 'right' ); ?>><?php _e("Right", "themehunk-megamenu") ?></option>
@@ -1262,7 +1272,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         $themehunk_megamenu_toggle_icons = $this->themehunk_megamenu_toggle_icons();
 
         ?>
-            <select class='icon_dropdown' name='settings[<?php echo $key ?>]'>
+            <select class='icon_dropdown' name='settings[<?php echo esc_attr($key); ?>]'>
                 <?php
 
                     echo "<option value='disabled'>" . __("Disabled", "themehunk-megamenu") . "</option>";
@@ -1291,8 +1301,6 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         return $elem1['priority'] > $elem2['priority'];
 
     }
-
-
 
 }
 endif;
