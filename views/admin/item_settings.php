@@ -44,7 +44,7 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 		            foreach ($widgets as $key => $value){
 		                echo '<div class="draggable-widget" data-widget-id-base="' . $value['id_base'] . '" data-type="outside-widget"> '. 
 		                	'<span class="outside-widget-name">' 
-		                	. $value['name'] . 
+		                	. esc_html($value['name']) . 
 		                	'</span>'.
 		                	' <span class="widgets-drag-btn"><i class="fa fa-arrows"></i>'
 		                	.__('Drag', 'themehunk-megamenu').'</span>
@@ -129,7 +129,7 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						<div class="megamenu-new-row-add">
 				 			<div class="themehunk-megamenu-add-row-btn">
 				 				<span class="dashicons dashicons-plus"></span>
-				 				<span class="new-row-btn-text">New Row</span>
+				 				<span class="new-row-btn-text"><?php esc_html_e('New Row','themehunk-megamenu'); ?></span>
 				 			</div>
 				 		</div>	
 				 	</div><!--	item-widgets-wrap mmth-limit-height -->

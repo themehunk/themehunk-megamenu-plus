@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: megamenu, mega menu, menu builder, custom menu
 Requires at least: 5.0
-Tested up to: 5.4.2
-Stable tag: 1.0.0
+Tested up to: 6.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,10 @@ Just upload the `themehunk-megamenu.zip` to the `/wp-content/plugins/` directory
 3. Background Styling
 
 == Changelog ==
+
+= 1.0.1 =
+* Tested With WordPress 6.1.
+
 
 = 1.0.0 =
 Initial release
