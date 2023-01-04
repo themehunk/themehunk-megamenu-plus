@@ -3,7 +3,9 @@
  * Plugin Name: ThemeHunk MegaMenu
  * Plugin URI:  https://themehunk.com
  * Description: Megamenu plugin from Themehunk.
- * Version:     1.0.0
+ * Version:     1.0.1
+ * Requires at least: 5.0
+ * Tested up to: 6.1
  * Author:      Themehunk
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -11,7 +13,7 @@
  * Domain Path: /languages
  */
  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-define( 'THEMEHUNK_MEGAMENU_VERSION',  '1.0.0' );
+define( 'THEMEHUNK_MEGAMENU_VERSION',  '1.0.1' );
 // Setting path variables
 if( ! defined( 'THEMEHUNK_MEGAMENU_URL' ) ){
 	define( 'THEMEHUNK_MEGAMENU_URL', plugin_dir_url( __FILE__ ) );
