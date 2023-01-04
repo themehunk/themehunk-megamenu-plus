@@ -98,8 +98,8 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                 "theme_save_error_exhausted" => __("The server ran out of memory whilst trying to regenerate the menu CSS.", "themehunk-megamenu"),
                 "theme_save_error_memory_limit" => __("Try disabling unusued plugins to increase the available memory. Alternatively, for details on how to increase your server memory limit see:", "themehunk-megamenu"),
                 "theme_save_error_500" => __("The server returned a 500 error. The server did not provide an error message (you should find details of the error in your server error log), but this is usually due to your server memory limit being reached.", "themehunk-megamenu"),
-                "increase_memory_limit_url" => "http://www.wpbeginner.com/wp-tutorials/fix-wordpress-memory-exhausted-error-increase-php-memory/",
-                "increase_memory_limit_anchor_text" => "How to increase the WordPress memory limit"
+                "increase_memory_limit_url" => esc_url("http://www.wpbeginner.com/wp-tutorials/fix-wordpress-memory-exhausted-error-increase-php-memory/"),
+                "increase_memory_limit_anchor_text" => __("How to increase the WordPress memory limit","themehunk-megamenu")
             )
         );
 
@@ -303,7 +303,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         <div class='megamenu_outer_wrap'>
              <div class='megamenu_header'>
                 <div class='megamenu_header_left'>
-                    <h2><?php _e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>
+                    <h2><?php esc_html_e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>
                     <div class='version'>
                         <?php
 
@@ -860,7 +860,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                     $active = '';
                                 }
 
-                                echo "<a class='mega-tab nav-tab {$active}' data-tab='mega-tab-content-{$section_id}'>".$section['title'] . "</a>";
+                                echo "<a class='mega-tab nav-tab {$active}' data-tab='mega-tab-content-{$section_id}'>".esc_html($section['title']) . "</a>";
 
                             }
                             echo "</h2>";
@@ -1028,7 +1028,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         <div>
 
-            <h3><?php _e("Changes not showing up?", "themehunk-megamenu"); ?></h3>
+            <h3><?php esc_html_e("Changes not showing up?", "themehunk-megamenu"); ?></h3>
 
             <p><?php echo _n("We have detected the following plugin that may prevent changes made within the theme editor from being applied to the menu.", "We have detected the following plugins that may prevent changes made within the theme editor from being applied to the menu.", count( $active_plugins), "themehunk-megamenu"); ?></p>
 
