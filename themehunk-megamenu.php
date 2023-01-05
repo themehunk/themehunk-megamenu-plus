@@ -1,8 +1,8 @@
 <?php 
 /**
- * Plugin Name: ThemeHunk MegaMenu
+ * Plugin Name: Easy ThemeHunk Mega Menu
  * Plugin URI:  https://themehunk.com
- * Description: Megamenu plugin from Themehunk.
+ * Description: Very Easy to use and Manage Mega Menu Plugin for WordPress and WooCommerce Websites.
  * Version:     1.0.1
  * Requires at least: 5.0
  * Tested up to: 6.1
