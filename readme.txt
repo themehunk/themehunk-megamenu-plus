@@ -2,9 +2,9 @@
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: megamenu, mega menu, menu builder, custom menu
-Requires at least: 5.0
-Tested up to: 5.4.2
-Stable tag: 1.0.0
+Requires at least: 5.5
+Tested up to: 5.7.1
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ ThemeHunk Megamenu is a free, fast and most user friendly plugin available for W
 
 **ThemeHunk Megamenu** ThemeHunk Megamenu is a free, fast and most user friendly plugin available for WordPress. This plugin comes with complete styling options for normal and mega menu, You can add page, post, widgets, products, text and custom link in the menu. You can create mega menu for shop, agency, blog, magazine websites. 
 
-[ThemeHunk Megamenu](https://themehunk.com/product/themehunk-megamenu/)   |  [Docs](https://www.themehunk.com/support/)
+[ThemeHunk Megamenu](https://themehunk.com/product/themehunk-megamenu/)   |  [Docs](https://themehunk.com/docs/themehunk-mega-menu/)
 
 **Key Features:-**
 
@@ -46,6 +46,27 @@ Just upload the `themehunk-megamenu.zip` to the `/wp-content/plugins/` directory
 3. Background Styling
 
 == Changelog ==
+
+= 1.0.7 =
+* Notify Updated.
+
+= 1.0.6 =
+* Notify iframe added.
+
+= 1.0.5 =
+* Notify image and text updated.
+
+= 1.0.4 =
+* Notify issue fixed add.
+
+= 1.0.3 =
+* Notify Banner add.
+
+= 1.0.2 =
+* style issue fixed.
+
+= 1.0.1 =
+* Theme compitable issue fixed.
 
 = 1.0.0 =
 Initial release

@@ -221,6 +221,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                             visibility: visible;
                             text-align: left;
                             padding: 0px 0px 0px 0px;
+                            margin:0;
                         }
                         $nav_wrapper_id  $themehunk_megamenu_nav_menu_id > li.themehunk-megamenu-menu-item {
                             margin: 0 0px 0 0;
@@ -267,7 +268,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                             position: static;
                         }
                       $nav_wrapper_id  $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget{
-                        padding:20px;
+                            padding: 10px;
                         }
                      
                        $nav_wrapper_id  $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu p {
@@ -348,9 +349,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
             }
 
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget h4.themehunk-megamenu-item-title{
-                   font-size: 22px;
-                    line-height: 30px;
-                    margin-bottom: 20px;
+                 font-weight: 600;
+                    font-size: 14px;
+                    line-height: 22px;
+                    margin-bottom:15px;
+                    text-transform: uppercase;
                     margin-left: 0;
                     margin-right: 0;
                      margin-top: 0;
@@ -362,9 +365,9 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-is-megamenu .themehunk-megamenu-menu-item.themehunk-megamenu-mmth-type-widget ul li{
                 list-style-type: none;
-                    line-height: 22px;
-                    font-size: 15px;
-                    margin-bottom: 5px;
+                    line-height: 20px;
+                    font-size: 13px;
+                    margin-bottom: 15px;
                 }
 
             .themehunk-megamenu-menu .navigation.mobile-menu-wrapper ul ul{
@@ -374,8 +377,9 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                 border:none;
                 width:100%;
             }    
+           
                            
-        }   
+          }   
             @media only screen and (max-width:$responsive_breakpoint ){
                  $nav_wrapper_id  $themehunk_megamenu_nav_menu_id .themehunk-megamenu-themehunk-megamenu-col-6, 
                  $nav_wrapper_id  $themehunk_megamenu_nav_menu_id.themehunk-megamenu-themehunk-megamenu-col-4,
@@ -397,7 +401,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: -webkit-flex;
-                display: flex;
+                display: inline-flex;
             }
             $nav_wrapper_id  $themehunk_megamenu_nav_menu_id{
                 position: fixed;
@@ -430,6 +434,8 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                 transition: left 200ms ease-in-out, right 200ms ease-in-out;
                 overflow:auto;
                 z-index: 9999999999;
+                margin:0;
+                    text-align: initial;
             }
             $nav_wrapper_id .mega-menu-themehunk-megamenu-toggle + [data-effect-mobile="slide_left"]{
                 right: -300px;
@@ -619,7 +625,37 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-menu-item.themehunk-megamenu-is-megamenu > ul.mega-sub-menu-themehunk-megamenu{
                 border-radius:0!important;
+                padding:5px!important;
              }
+
+             $nav_wrapper_id $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget .themehunk-megamenu-item-title{
+                font-size:16px;
+                line-height:23px;
+                margin:0;
+                padding:0;
+                margin-bottom:10px;
+           }
+           .themehunk-megamenu-menu a.themehunk-megamenu-menu-link{
+                       cursor: pointer;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        padding:0;
+                        line-height: normal;
+                        display: block;
+          }
+           $nav_wrapper_id $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget .tagcloud a{
+                padding:7px!important;
+            }
+          $nav_wrapper_id $themehunk_megamenu_nav_menu_id .themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a {
+                    padding: 0px!important;
+                }
+         .themehunk-megamenu-is-megamenu .mega-sub-menu-themehunk-megamenu.depth-0:before{
+            height:100%!important;
+         }   
+
+         ol, ul {
+                margin: 0;
+            }  
 
         }
 

@@ -94,7 +94,6 @@ class ThemeHunk_MegaMenu_Walker extends Walker_Nav_Menu
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100vh;
                 background:{$themehunk_megamenu_bg_color};
             }
             #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-themehunk-megamenu-col{
@@ -109,10 +108,10 @@ class ThemeHunk_MegaMenu_Walker extends Walker_Nav_Menu
             #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget p,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h1,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h2,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h3,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h4,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h5, #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget h6, #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget span{
                color:{$themehunk_megamenu_megamenu_widget_text_color}!important;
            }
-           #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a{
+           #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a span{
                color:{$themehunk_megamenu_megamenu_widget_link_color}!important;
            }
-           #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a:hover{
+           #themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a:hover,#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget a:hover span{
                color:{$themehunk_megamenu_megamenu_widget_linkhvr_color}!important;
            }
         ";
