@@ -124,10 +124,10 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
 
 	     public static function themehunk_megamenu_menu_items( $menu_item, $widget_key_id = 0){
             ?>
-            <div id="widget-<?php echo $menu_item['ID']; ?>" class="widget"  data-item-key-id="<?php echo $widget_key_id; ?>">
+            <div id="widget-<?php echo $menu_item['ID']; ?>" class="widget"  data-item-key-id="<?php echo esc_attr($widget_key_id); ?>">
                 <div class="widget-top">
                     <div class="widget-title ui-sortable-handle">
-                        <h3><?php echo $menu_item['title']; ?></h3>
+                        <h3><?php echo esc_html($menu_item['title']); ?></h3>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
             $id_base = isset( $control['id_base'] ) ? $control['id_base'] : $control['id']; 
             ?>
             <div id="widget-<?php echo $widget_id; ?>" class="widget"  data-item-key-id="<?php
-            echo $widget_key_id; ?>">
+            echo esc_attr($widget_key_id); ?>">
                 <div class="widget-top">
 
                     <div class="widget-title-action">
@@ -159,7 +159,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
 
                     </div>
                     <div class="widget-title">
-                        <h3><?php echo $control['name']; ?><span class="in-widget-title"></span></h3>
+                        <h3><?php echo esc_html($control['name']); ?><span class="in-widget-title"></span></h3>
                     </div>
                 </div>
 

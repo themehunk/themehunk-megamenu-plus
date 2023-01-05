@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $mmth_nav_location_settings = get_themehunk_megamenu_option( $current_location );
 			?>
             <div class="themehunk-megamenu-menu-meta-box-wrapper">
-                <p><?php _e( $location_name, 'themehunk-megamenu' ); ?></p>
+                <p><?php echo esc_html( $location_name); ?></p>
                             
                 <div class="themehunk-megamenu-menu-meta-box-data">
                     
-                    <input type="hidden" name="nav_menu_recently_edited_id" value="<?php echo $selected_nav; ?>">
-                    <input type="hidden" name="themehunk_megamenu_nav_settings[<?php echo $current_location; ?>][menu_location]" value="<?php echo $current_location; ?>">
+                    <input type="hidden" name="nav_menu_recently_edited_id" value="<?php echo esc_attr($selected_nav); ?>">
+                    <input type="hidden" name="themehunk_megamenu_nav_settings[<?php echo $current_location; ?>][menu_location]" value="<?php echo esc_attr($current_location); ?>">
 
                     <input type='checkbox' class='themehunk_megamenu_is_enabled' name='themehunk_megamenu_nav_settings[<?php echo $current_location; ?>][is_enabled]' value='1' <?php checked( isset($mmth_nav_location_settings['is_enabled']) ); ?> />
                 </div>
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
             <div class="mmth-notice-warning">
                 <p>
-					<?php _e( 'This menu is not in any location, please set a location first', 'themehunk-megamenu' ); ?>
+					<?php esc_html_e( 'This menu is not in any location, please set a location first', 'themehunk-megamenu' ); ?>
                 </p>
             </div>
 	</div>	
