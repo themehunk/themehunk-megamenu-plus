@@ -75,7 +75,7 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 			 			<div id="themehunk_megamenu_item_layout_wrap--notices" style="display: none;"></div>
 			            <?php  
 	
-	                      if ( count($themehunk_megamenu_layout['layout']) ){ 
+	                      if ( isset($themehunk_megamenu_layout['layout']) ){ 
 	                            foreach ($themehunk_megamenu_layout['layout'] as $layout_key => $layout_value){ ?>
 	                                <div class="themehunk-megamenu-row" data-row-id="<?php echo $layout_key; ?>">
 
@@ -156,7 +156,9 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
                            </td>
 						  <td class="mmth-sett-optn">
 						            
-						    	<input type="checkbox" id="themehunk_megamenu_endtoend" name="themehunk_megamenu_endtoend" value="end-to-end" <?php if($mmth_builder_option['themehunk_megamenu_endtoend']=="end-to-end") echo "checked"; ?>>
+						  <input type="checkbox" id="themehunk_megamenu_endtoend" name="themehunk_megamenu_endtoend" value="end-to-end" <?php if(isset($mmth_builder_option) && is_array($mmth_builder_option) && $mmth_builder_option['themehunk_megamenu_endtoend']=="end-to-end") echo "checked"; ?>>
+
+
 						    </td>
 						</tr>
 						  <!-- radio image -->
@@ -168,12 +170,18 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  		<label class="themehunk-megamenu-pannel-alignment">
 									<div class="mmth-radio-selector">
 									    <input id="panleft" type="radio" name="themehunk-megamenu-pannel-alignment" value="panleft" />
+										
+										<?php $panel_alignment = ''; 
+											if(is_array($mmth_builder_option) && isset($mmth_builder_option['mmth_pannel_alignment'])) {
+												$panel_alignment = $mmth_builder_option['mmth_pannel_alignment'];
+											}?>
 									    
-									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panleft") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_LEFT ?>);" for="panleft"></label>
+										<label class="radio-cc <?php if($panel_alignment == "panleft") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_LEFT ?>);" for="panleft"></label>
 
 									    <input id="panright" type="radio" name="themehunk-megamenu-pannel-alignment" value="panright" />
 									    
-									    <label class="radio-cc <?php if($mmth_builder_option['mmth_pannel_alignment']=="panright") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_RIGHT ?>);" for="panright"></label>
+										<label class="radio-cc <?php if(isset($mmth_builder_option['mmth_pannel_alignment']) && $mmth_builder_option['mmth_pannel_alignment']=="panright") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_PANEL_RIGHT ?>);" for="panright"></label>
+
 									 </div>
 						  	   </label>
 						  	</td>
@@ -185,12 +193,14 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		
-							  	<input type="text" id="item-megamenu-bgimage-url" name="themehunk_megamenu_bg_image" value="<?php echo $mmth_builder_option['themehunk_megamenu_bg_image']; ?>">
+							  <input type="text" id="item-megamenu-bgimage-url" name="themehunk_megamenu_bg_image" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_bg_image']) ? $mmth_builder_option['themehunk_megamenu_bg_image'] : ''; ?>">
+
 							  	<input type="button" id="set-item-megamenu-bgimage" value="<?php _e('Upload Image', 'themehunk-megamenu') ?>">
 						  		<?php $hidden = empty( $mmth_builder_option['themehunk_megamenu_bg_image'] ) ? 'hidden' : ''  ?>
 						  		<p class="hide-if-no-js <?php echo $hidden; ?>">
 						  			<span class="img-ovrlay">
-									    <img id="item-megamenu-bgimage-container" src="<?php echo $mmth_builder_option['themehunk_megamenu_bg_image']; ?>" />
+									  <img id="item-megamenu-bgimage-container" src="<?php echo isset($mmth_builder_option['themehunk_megamenu_bg_image']) ? $mmth_builder_option['themehunk_megamenu_bg_image'] : ''; ?>" />
+
 									</span><br>
 										<a href="javascript:;" id="remove_themehunk_megamenu_bg_image">
 											<?php _e('Remove Image', 'themehunk-megamenu') ?>
@@ -218,19 +228,23 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-pannel-top-padding">
 						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_top']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_top" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_padding_top']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_top'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-right-padding">
 						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_right']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_right" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_padding_right']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_right'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-padding">
 						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
-						  				<input class="themehunk_megamenu_mega_pannel_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_bottom']; ?>">
+									  <input class="themehunk_megamenu_mega_pannel_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_bottom" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_padding_bottom']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_bottom'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-left-padding">
 						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
-						  			<input class="themehunk_megamenu_mega_pannel_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_left']; ?>">
+									  <input class="themehunk_megamenu_mega_pannel_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_padding_left" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_padding_left']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_padding_left'] : ''; ?>">
+
 						  		</label>
 						  	</td>
 						  </tr>
@@ -246,19 +260,23 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						 
 						  		<label class="mmth-mega-pannel-top-border">
 						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_border_top mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_top']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_border_top mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_top" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_border_top']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_border_top'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-right-border">
 						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_border_right mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_right']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_border_right mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_right" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_border_right']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_border_right'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-border">
 						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
-						  				<input class="themehunk_megamenu_mega_pannel_border_bottom mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_bottom']; ?>">
+									  <input class="themehunk_megamenu_mega_pannel_border_bottom mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_bottom" value="<?php echo is_array($mmth_builder_option) && isset($mmth_builder_option['themehunk_megamenu_mega_pannel_border_bottom']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_border_bottom'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-left-border">
 						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
-						  			<input class="themehunk_megamenu_mega_pannel_border_left mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_border_left']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_border_left mmth-border" type="number" name="themehunk_megamenu_mega_pannel_border_left" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_pannel_border_left']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_border_left'] : ''; ?>">
+
 						  		</label>
 						  	</td>
 						  </tr>
@@ -269,19 +287,23 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-pannel-top-left-radius">
 						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_left']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_left" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_left']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_left'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-top-right-radius">
 						  			<span class="mega-short-desc"><?php  _e('Right', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_right']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_raidus_top_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_top_right" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_right']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_top_right'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-right-radius">
 						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
-						  				<input class="themehunk_megamenu_mega_pannel_raidus_bottom_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_right']; ?>">
+									  <input class="themehunk_megamenu_mega_pannel_raidus_bottom_right mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_right" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_right']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_right'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-pannel-bottom-left-radius">
 						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
-						  			<input class="themehunk_megamenu_mega_pannel_raidus_bottom_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_left']; ?>">
+						  			<input class="themehunk_megamenu_mega_pannel_raidus_bottom_left mmth-padding" type="number" name="themehunk_megamenu_mega_pannel_raidus_bottom_left" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_left']) ? $mmth_builder_option['themehunk_megamenu_mega_pannel_raidus_bottom_left'] : ''; ?>">
+
 						  		</label>
 						  	</td>
 						  </tr>
@@ -292,19 +314,22 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  	<td class="mmth-sett-optn">
 						  		<label class="mmth-mega-column-top-padding">
 						  			<span class="mega-short-desc"><?php  _e('Top', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_column_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_top" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_top']; ?>">
+						  			<input class="themehunk_megamenu_mega_column_padding_top mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_top" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_column_padding_top']) ? $mmth_builder_option['themehunk_megamenu_mega_column_padding_top'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-column-right-padding">
 						  			<span class="mega-short-desc"><?php  _e('Right (px)', 'themehunk-megamenu');?></span>
-						  			<input class="themehunk_megamenu_mega_column_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_right" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_right']; ?>">
+						  			<input class="themehunk_megamenu_mega_column_padding_right mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_right" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_column_padding_right']) ? $mmth_builder_option['themehunk_megamenu_mega_column_padding_right'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-column-bottom-padding">
 						  			<span class="mega-short-desc"><?php  _e('Bottom', 'themehunk-megamenu');?></span>
-						  				<input class="themehunk_megamenu_mega_column_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_bottom" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_bottom']; ?>">
+									  <input class="themehunk_megamenu_mega_column_padding_bottom mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_bottom" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_column_padding_bottom']) ? $mmth_builder_option['themehunk_megamenu_mega_column_padding_bottom'] : ''; ?>">
+
 						  		</label>
 						  		<label class="mmth-mega-column-left-padding">
 						  			<span class="mega-short-desc"><?php  _e('Left', 'themehunk-megamenu');?> </span>
-						  			<input class="themehunk_megamenu_mega_column_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_left" value="<?php echo $mmth_builder_option['themehunk_megamenu_mega_column_padding_left']; ?>">
+						  			<input class="themehunk_megamenu_mega_column_padding_left mmth-padding" type="number" name="themehunk_megamenu_mega_column_padding_left" value="<?php echo isset($mmth_builder_option['themehunk_megamenu_mega_column_padding_left']) ? $mmth_builder_option['themehunk_megamenu_mega_column_padding_left']:''; ?>">
 						  		</label>
 						  	</td>
 						  </tr>
@@ -342,13 +367,16 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 									<div class="mmth-radio-selector">
 										
 									    <input id="left" type="radio" name="mmth-widget-content-alignment" value="left" />
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="left") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_LEFT ?>);" for="left"></label>
+										<label class="radio-cc <?php if(isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === "left") echo " active"; ?>" style="background-image: url(<?php echo defined('THEMEHUNK_MEGAMENU_ALIGN_LEFT') ? THEMEHUNK_MEGAMENU_ALIGN_LEFT : ''; ?>);" for="left"></label>
+
 
                                         <input id="center" type="radio" name="mmth-widget-content-alignment" value="center" />
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="center") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_CENTER ?>);" for="center"></label>
+									    <label class="radio-cc <?php if(isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === "center") echo " active"; ?>" style="background-image: url(<?php echo defined('THEMEHUNK_MEGAMENU_ALIGN_CENTER') ? THEMEHUNK_MEGAMENU_ALIGN_CENTER : ''; ?>);" for="center"></label>
+
 
 									    <input id="right" type="radio" name="mmth-widget-content-alignment" value="right" /> 
-									    <label class="radio-cc <?php if($mmth_builder_option['themehunk_megamenu_widget_content_alignment']=="right") echo "active"; ?>" style="background-image: url(<?php echo THEMEHUNK_MEGAMENU_ALIGN_RIGHT ?>);" for="right"></label>
+									    <label class="radio-cc <?php if(isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === "right") echo " active"; ?>" style="background-image: url(<?php echo defined('THEMEHUNK_MEGAMENU_ALIGN_RIGHT') ? THEMEHUNK_MEGAMENU_ALIGN_RIGHT : ''; ?>);" for="right"></label>
+
 
 									    
 									 </div>
