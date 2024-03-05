@@ -1,14 +1,14 @@
 ====== Easy Mega Menu Plugin for WordPress - ThemeHunk ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu, custom menu 
+Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu
 Requires at least: 5.5
 Tested up to: 6.4
 Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Very Easy to use and Manage Mega Menu Plugin for WordPress and WooCommerce Websites. ThemeHunk Megamenu is a free, fast and most user friendly plugin available for WordPress. This plugin comes with complete styling options for normal and mega menu, You can add page, post, widgets, products, text and custom link in the menu.
+Free, fast, and user-friendly mega menu plugin for WordPress & WooCommerce. Add pages, posts, widgets, products, text, and custom links effortlessly.
 
 == Description ==
 
@@ -40,14 +40,16 @@ Looking to enhance your WordPress menu? ThemeHunk Megamenu is your go-to plugin!
 == Frequently Asked Questions ==
 
 = How to Install Plugin =
-Just upload the `themehunk-megamenu.zip` to the `/wp-content/plugins/` directory, and then activate it from 'Plugins' menu in WordPress.
+Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` directory, and then activate it from 'Plugins' menu in WordPress.
 
-1. [Support Forum](https://www.themehunk.com/support/#plugin.25)
+1. [Help & Support](https://themehunk.com/contact-us/)
 
 == Screenshots ==
 1. Drag & Drop Modules
 2. Default menu styling
 3. Background Styling
+4.
+5.
 
 == Changelog ==
 
