@@ -3,15 +3,15 @@
  * Plugin Name: Easy ThemeHunk Mega Menu
  * Plugin URI:  https://themehunk.com
  * Description: Very Easy to use and Manage Mega Menu Plugin for WordPress and WooCommerce Websites.
- * Version:     1.0.8
- * Requires at least: 5.0
+ * Version:     1.0.9
+ * Requires at least: 5.5
  * Author:      Themehunk
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: themehunk-megamenu
  */
  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-define( 'THEMEHUNK_MEGAMENU_VERSION',  '1.0.6' );
+define( 'THEMEHUNK_MEGAMENU_VERSION',  '1.0.9' );
 
 // Setting path variables
 if( ! defined( 'THEMEHUNK_MEGAMENU_URL' ) ){

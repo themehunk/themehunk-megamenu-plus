@@ -1,10 +1,10 @@
 ====== Easy Mega Menu Plugin for WordPress - ThemeHunk ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: megamenu, mega menu, menu builder, custom menu
+Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu, custom menu 
 Requires at least: 5.5
-Tested up to: 6.1
-Stable tag: 1.0.8
+Tested up to: 6.4
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,20 +12,24 @@ Very Easy to use and Manage Mega Menu Plugin for WordPress and WooCommerce Websi
 
 == Description ==
 
-**ThemeHunk Megamenu** ThemeHunk Megamenu is a free, fast and most user friendly plugin available for WordPress. This plugin comes with complete styling options for normal and mega menu, You can add page, post, widgets, products, text and custom link in the menu. You can create mega menu for shop, agency, blog, magazine websites. 
+**ThemeHunk Megamenu Plus** 
+
+Looking to enhance your WordPress menu? ThemeHunk Megamenu is your go-to plugin! This free, lightning-fast solution offers complete styling options for both normal and mega menus. Whether you're adding pages, posts, widgets, products, text, or custom links, this plugin has you covered. Perfect for various website types including shops, agencies, blogs, and magazines, ThemeHunk Megamenu ensures your menu stands out while maintaining functionality. This is an easy-to-use responsive drop-down menu builder. You can add background images and colour separately for each menu. Elevate your site's navigation effortlessly with ThemeHunk Megamenu!
+
 
 [ThemeHunk Megamenu](https://themehunk.com/product/themehunk-megamenu/)   |  [Docs](https://themehunk.com/docs/themehunk-mega-menu/)
 
+
 **Key Features:-**
 
-* Drag and Drop menu Builder
-* Styling options for default menu.
-* Styling options for Megamenu.
+* Drag and Drop Mega Menu Builder.
+* 150+ Free Icon Collections.
+* 100% Responsive for All Devices.
+* Styling Options for the Default Menu.
+* Styling Options for Megamenu.
+* Display menu using Automatic Integration, Block, Widget or Shortcode.
 * Support page, post, widgets, products, text and custom link in the mega menu.
 * Unlimited row and column builder.
-* 24x7 support available for free product too [http://www.themehunk.com/support](http://www.themehunk.com/support). 
-
-
 
 == Installation ==
 
@@ -46,6 +50,10 @@ Just upload the `themehunk-megamenu.zip` to the `/wp-content/plugins/` directory
 3. Background Styling
 
 == Changelog ==
+
+= 1.0.9 =
+* Fix : Ajax issue fix.
+* Update: Tested With WordPress 6.4
 
 = 1.0.8 =
 * Tested With WordPress 6.1
