@@ -443,28 +443,21 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 	                        if ( ! empty($mmth_builder_option['icon'])){
 	                            $current_icon = $mmth_builder_option['icon'];
 	                        }
-	                        echo "<a href='javascript:;' class='themehunk-megamenu-icons' data-icon='' title=''>&nbsp;</a>";
-	                        foreach ($dashicons as $di_key => $di_name){
-	                            $selected_icon = ($current_icon == 'dashicons '.$di_key) ? 'themehunk-megamenu-icon-selected' :'';
-	                            echo "<a href='javascript:;' class='themehunk-megamenu-icons {$selected_icon} ' data-icon='dashicons {$di_key}' title='{$di_name}'>
-	                            <i class='dashicons {$di_key}'></i></a>";
-	                        }
+	                        ?><a href='javascript:;' class='themehunk-megamenu-icons' data-icon='' title=''>&nbsp;</a>
+	                        <?php foreach ($dashicons as $di_key => $di_name){
+	                            $selected_icon = ($current_icon == 'dashicons '.$di_key) ? 'themehunk-megamenu-icon-selected' :'';?>
+	                            <a href='javascript:;' class='themehunk-megamenu-icons <?php echo esc_attr($selected_icon);?> ' data-icon='dashicons <?php echo esc_attr($di_key);?>' title='<?php echo esc_attr($di_name);?>'>
+	                            <i class='dashicons <?php echo esc_attr($di_key);?>'></i></a>";
+	                        <?php  }
 	                        ?>
 	                    </div>
 
 	                    <div id="icons-tabs-2">
-	                        <?php
-	                        // $font_awesome = mmth_font_awesome();
-	                        echo "<span class='themehunk-megamenu-pro'><i class='dashicons dashicons-lock'></i> This is available in Pro version</span>";
-	                        
-	                        ?>
+	                       <span class='themehunk-megamenu-pro'><i class='dashicons dashicons-lock'></i> <?php __('This is available in Pro version','themehunk-megamenu');?></span>
 	                    </div>	
 
 	                    <div id="icons-tabs-3">
-                            <?php
-                            // $icofonts = mmth_icofont();
-                             echo "<span class='themehunk-megamenu-pro'><i class='dashicons dashicons-lock'></i> This is available in Pro version</span>";
-                            ?>
+                            <span class='themehunk-megamenu-pro'><i class='dashicons dashicons-lock'></i> <?php __('This is available in Pro version','themehunk-megamenu');?></span>
                         </div>	        
 	                </div>
 	            </div>

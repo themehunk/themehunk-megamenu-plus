@@ -111,15 +111,15 @@ if ( ! function_exists('themehunk_megamenu_get_array_first_key')){
 add_shortcode( 'themehunk_megamenu_test_shortcode', 'themehunk_megamenu_test_shortcode_function' );
 
 function themehunk_megamenu_test_shortcode_function(){ 
-      // $options = get_option( 'themehunk_megamenu_options' );
-    $updated_data = get_post_meta( 1807, 'themehunk_megamenu_layout', true );
+        // $options = get_option( 'themehunk_megamenu_options' );
+        $updated_data = get_post_meta( 1807, 'themehunk_megamenu_layout', true );
 
-    $themehunk_megamenu_nav_locations = get_nav_menu_locations();
- 
-    $available_menus = wp_get_nav_menus();
+        $themehunk_megamenu_nav_locations = get_nav_menu_locations();
+    
+        $available_menus = wp_get_nav_menus();
 
-    return print_r($themehunk_megamenu_nav_locations);
-    // return '<pre>'. print_r($available_menus) . '</pre>';
+        return print_r($themehunk_megamenu_nav_locations);
+        // return '<pre>'. print_r($available_menus) . '</pre>';
 }
 
 

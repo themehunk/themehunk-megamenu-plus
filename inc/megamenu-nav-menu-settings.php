@@ -18,8 +18,13 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
     }
 
     public function themehunk_megamenu_nav_menu_save(){
-        check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
+        if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+            
+        }
+        check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
         $menu_id = (int) sanitize_text_field($_POST['menu_id']);
         $mmth_settings_array = json_decode( stripslashes( $_POST['mmth_settings'] ), true );
         $saved_settings = array();

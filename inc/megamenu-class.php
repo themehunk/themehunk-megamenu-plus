@@ -100,7 +100,7 @@ class ThemeHunk_MegaMenu
                 "data-unbind" => '',
             ), $menu_id, $menu_settings, $themehunk_megamenu_options, $current_theme_location );
 
-         $attributes = "";
+            $attributes = "";
 
             foreach( $wrap_attributes as $attribute => $value ) {
                 if ( strlen( $value ) ) {
@@ -130,32 +130,29 @@ class ThemeHunk_MegaMenu
         return $args;
     }    
 
-    public function themehunk_megamenu_add_menu_settings_wrap_admin_footer() {
+    public function themehunk_megamenu_add_menu_settings_wrap_admin_footer(){
         $current_screen = get_current_screen();
         if (property_exists($current_screen,'base')){
-            if ($current_screen->base === 'nav-menus'){
-                $html =  '<div id="themehunk-megamenuSettingOverlay" style="display: none;"></div>         
-                            <div class="themehunk-megamenu-item-settins-wrap" style="display: none;">
-                                <input type="hidden" class="themehunk-megamenu-status-hidden" value="">
-                                <div class="themehunk-megamenu-item-settings-content">
-                                </div>
-                            </div>';
-                echo $html;
-            }
+            if ($current_screen->base === 'nav-menus'){ ?>
+                <div id="themehunk-megamenuSettingOverlay" style="display: none;"></div>         
+                  <div class="themehunk-megamenu-item-settins-wrap" style="display: none;">
+                    <input type="hidden" class="themehunk-megamenu-status-hidden" value="">
+                       <div class="themehunk-megamenu-item-settings-content">
+                       </div>
+                    </div>
+           <?php  }
+           }
         }
-    }
 
-
-
-    /**
-     * Add the html for the responsive toggle box to the menu
-     *
-     * @param string $nav_menu
-     * @param object $args
-     * @return string
-     * @since 1.3
-     */
- public function themehunk_megamenu_add_responsive_toggle( $nav_menu, $args ) {
+        /**
+         * Add the html for the responsive toggle box to the menu
+         *
+         * @param string $nav_menu
+         * @param object $args
+         * @return string
+         * @since 1.3
+         */
+        public function themehunk_megamenu_add_responsive_toggle( $nav_menu, $args ) {
 
         $args = (object) $args;
         
@@ -164,17 +161,18 @@ class ThemeHunk_MegaMenu
             return $nav_menu;
         }
 
-       $find = 'class="' . $args->container_class . '">';
+        $find = 'class="' . esc_attr($args->container_class) . '">';
 
-       $theme_id = themehunk_megamenu_themehunk_megamenu_get_theme_id_for_location( $args->theme_location );
+        $theme_id = themehunk_megamenu_themehunk_megamenu_get_theme_id_for_location( $args->theme_location );
 
-       $content = "";
+        $content = "";
 
-       $content = apply_filters( "themehunk_megamenu_toggle_bar_content", $content, $nav_menu, $args, $theme_id );
-       
-       $replace = $find . '<div class="mega-menu-themehunk-megamenu-toggle">'.$content .'</div>';
+        $content = apply_filters("themehunk_megamenu_toggle_bar_content", $content, $nav_menu, $args, $theme_id );
+        
+        $replace = $find . '<div class="mega-menu-themehunk-megamenu-toggle">'.$content .'</div>';
 
         return str_replace( $find, $replace, $nav_menu );
+
     }
     
 }

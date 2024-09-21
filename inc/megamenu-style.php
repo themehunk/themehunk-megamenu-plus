@@ -668,18 +668,17 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                                                                       
 EOT;
 
-            return apply_filters('themehunk_megamenu_generated_css', $style, $nav_wrapper_id);
+            echo apply_filters('themehunk_megamenu_generated_css', $style, $nav_wrapper_id);
         }  
         /**
          * Render css to wp head
          */
         public function render_css(){
-
-            $style = '<style type="text/css">';
-            $style .= $this->css();
-            $style .= '</style>';
-
-            echo $style;
+            ?>
+            <style type="text/css">
+            <?php $this->css();?>
+            </style>
+            <?php
         }
 }
 
