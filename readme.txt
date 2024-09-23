@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu
 Requires at least: 5.5
-Tested up to: 6.4
-Stable tag: 1.0.9
+Tested up to: 6.6
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,10 +48,12 @@ Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` dire
 1. Drag & Drop Modules
 2. Default menu styling
 3. Background Styling
-4.
-5.
+4. Mega Menu Builder
 
 == Changelog ==
+= 1.1.0 =
+* Fix : nonce issue fix.
+* Style: style issue fixed.
 
 = 1.0.9 =
 * Fix : Ajax issue fix.
