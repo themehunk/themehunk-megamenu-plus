@@ -110,6 +110,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		 * Check if Thunk megamenu is enabled for top menu item
 		 */
 		public function themehunk_megamenu_item_enable_megamenu(){
+			if ( ! current_user_can( 'administrator' ) ) {
+
+				wp_die( - 1, 403 );
+				
+		  }
 			check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 			$menu_item_id = (int) sanitize_text_field( $_POST['menu_item_id'] );
 			$themehunk_megamenu_item_megamenu_status = sanitize_text_field( $_POST['themehunk_megamenu_item_megamenu_status'] );
@@ -123,13 +128,15 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		 * Show settings menu
 		 */
 		public function themehunk_megamenu_item_settings_load(){
-			check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+			if ( ! current_user_can( 'administrator' ) ) {
 
+				wp_die( - 1, 403 );
+				
+		  }
+			check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 			$menu_item_id = (int) sanitize_text_field( $_POST['menu_item_id'] );
 			$menu_id = (int) sanitize_text_field( $_POST['menu_id'] );
 			$menu_item_depth = (int) sanitize_text_field( $_POST['menu_item_depth'] );
-
-
 			//We are working with top level menu
 			if ($menu_item_depth == 0) {
 				$get_layout = (array) get_post_meta($menu_item_id, 'themehunk_megamenu_layout', true);
@@ -148,7 +155,6 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 					}
 				}
 
-				
 				if (! empty($get_layout['layout'])){
 					foreach($get_layout['layout'] as $lkey => $all_layout){
 						if (count($all_layout['row'])){
@@ -199,6 +205,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		}
 
 		public function themehunk_megamenu_save_layout(){
+			if ( ! current_user_can( 'administrator' ) ) {
+
+				wp_die( - 1, 403 );
+				
+		  }
 			check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
 			$layout_format = sanitize_text_field($_POST['layout_format']);
@@ -382,6 +393,15 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		}
 
 		public function themehunk_megamenu_save_builder_options() {
+
+			if ( ! current_user_can( 'administrator' ) ) {
+
+				wp_die( - 1, 403 );
+				
+		    }
+
+			check_ajax_referer('themehunk_megamenu_check_security', 'nonce');
+
 			$menu_item_id      = (int) sanitize_text_field($_POST['menu_item_id']);
 			$themehunk_megamenu_width    = sanitize_text_field($_POST['themehunk_megamenu_width']);
 			$themehunk_megamenu_endtoend = sanitize_text_field($_POST['themehunk_megamenu_endtoend']);
@@ -500,14 +520,17 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		}
 
 		public function themehunk_megamenu_update_megamenu_icon(){
+			if ( ! current_user_can( 'administrator' ) ) {
+
+				wp_die( - 1, 403 );
+				
+		  }
 			check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 			$menu_item_id = (int) sanitize_text_field( $_POST['menu_item_id'] );
 			$icon 		  = sanitize_text_field( $_POST['icon'] );
-
 			$old_settings = (array) maybe_unserialize(get_post_meta($menu_item_id, 'themehunk_megamenu_builder_options', true)); 
 			$new_settings = array();
 			$new_settings['icon'] = isset( ( $icon ) ) ? $icon : '';
-			
 			$updated_settings = array_merge( $old_settings, $new_settings );
 
 			update_post_meta( $menu_item_id, 'themehunk_megamenu_builder_options', $updated_settings );

@@ -523,7 +523,7 @@
             e.preventDefault();
             themehunk_megamenu_saving_indicator('show');
             // var menu_item_id = $('.themehunk-megamenu-status-hidden').val();
-            var form_input = $(this).serialize()+'&action=themehunk_megamenu_save_builder_options';
+            var form_input = $(this).serialize()+'&action=themehunk_megamenu_save_builder_options&nonce=' + themehunk_megamenu_obj.themehunk_megamenu_nonce;
             
             // console.log(form_input);
             $.post(themehunk_megamenu_obj.ajax_url, form_input, function (response) {

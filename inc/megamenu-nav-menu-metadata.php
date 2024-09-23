@@ -17,19 +17,15 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $mmth_nav_location_settings = get_themehunk_megamenu_option( $current_location );
 			?>
             <div class="themehunk-megamenu-menu-meta-box-wrapper">
-                <p><?php echo esc_html( $location_name); ?></p>
-                            
+                <p><?php echo esc_html($location_name); ?></p>         
                 <div class="themehunk-megamenu-menu-meta-box-data">
-                    
                     <input type="hidden" name="nav_menu_recently_edited_id" value="<?php echo esc_attr($selected_nav); ?>">
-                    <input type="hidden" name="themehunk_megamenu_nav_settings[<?php echo $current_location; ?>][menu_location]" value="<?php echo esc_attr($current_location); ?>">
-
-                    <input type='checkbox' class='themehunk_megamenu_is_enabled' name='themehunk_megamenu_nav_settings[<?php echo $current_location; ?>][is_enabled]' value='1' <?php checked( isset($mmth_nav_location_settings['is_enabled']) ); ?> />
+                    <input type="hidden" name="themehunk_megamenu_nav_settings[<?php echo esc_attr($current_location); ?>][menu_location]" value="<?php echo esc_attr($current_location); ?>">
+                    <input type='checkbox' class='themehunk_megamenu_is_enabled' name='themehunk_megamenu_nav_settings[<?php echo esc_attr($current_location); ?>][is_enabled]' value='1' <?php checked( isset($mmth_nav_location_settings['is_enabled']) ); ?> />
                 </div>
             </div>
-
-	<?php }   submit_button( __( 'Save' ), 'themehunk-megamenu-mega-menu-save button-primary alignright' ); ?>
-                <span class='spinner'></span>
+   <?php } submit_button( __( 'Save' ), 'themehunk-megamenu-mega-menu-save button-primary alignright' ); ?>
+            <span class='spinner'></span>
    <?php }else {
 			?>
             <div class="mmth-notice-warning">

@@ -336,6 +336,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Delete Row
          */
         public function themehunk_megamenu_delete_row(){
+            if ( ! current_user_can( 'administrator' ) ) {
+
+                wp_die( - 1, 403 );
+                
+           }
             check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
             $menu_item_id   = (int) sanitize_text_field($_POST['menu_item_id']);
@@ -353,6 +358,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Delete column
          */
         public function themehunk_megamenu_delete_column(){
+            if ( ! current_user_can( 'administrator' ) ) {
+
+                wp_die( - 1, 403 );
+                
+           }
             check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
             $menu_item_id   = (int) sanitize_text_field($_POST['menu_item_id']);
@@ -477,6 +487,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
         // Adds a column to grid row
 
         public function themehunk_megamenu_add_grid_row_column() {
+            if ( ! current_user_can( 'administrator' ) ) {
+
+                wp_die( - 1, 403 );
+                
+           }
             check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
             $menu_item_id = (int) sanitize_text_field($_POST['menu_item_id']);
             $row_id = sanitize_text_field($_POST['row_id']); //current modifying row id.
@@ -520,6 +535,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          */
 
         public function themehunk_megamenu_delete_widget(){
+            if ( ! current_user_can( 'administrator' ) ) {
+
+                wp_die( - 1, 403 );
+                
+           }
             check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
 
             $id_base = sanitize_text_field( $_POST['id_base'] );

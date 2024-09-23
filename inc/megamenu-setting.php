@@ -141,6 +141,12 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      */
     public function save_theme($is_ajax = false){
 
+        if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+            
+       }
+
         check_admin_referer('themehunk_megamenu_save_setting' );
 
         $theme = esc_attr($_POST['theme_id']);
@@ -174,6 +180,12 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      * @since 2.4.1
      */
     public function ajax_save_theme(){
+
+        if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+            
+       }
 
         check_ajax_referer( 'themehunk_megamenu_save_setting' );
 
@@ -862,149 +874,131 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
                                 echo "<a class='mega-tab nav-tab {$active}' data-tab='mega-tab-content-{$section_id}'>".esc_html($section['title']) . "</a>";
 
-                            }
-                            echo "</h2>";
-                            foreach ( $settings as $section_id => $section ) {
-                       $is_first = true;
-                       if ($is_first) {
-                            $display = 'block';
-                            $is_first = false;
-                        } else {
-                            $display = 'none';
-                        }
+                            }?>
+                            </h2>
+<?php foreach ( $settings as $section_id => $section ) : 
+    $is_first = true;
+    $display = $is_first ? 'block' : 'none';
+    $is_first = false;
+?>
 
-                        echo " <div class='mega-tab-content mega-tab-content-{$section_id}' style='display: {$display}'>";
-                        echo " <table class='{$section_id}'>";
+<div class="mega-tab-content mega-tab-content-<?php echo esc_attr($section_id); ?>" style="display: <?php echo esc_attr($display); ?>">
+    <table class="<?php echo esc_attr($section_id); ?>">
 
-                        // order the fields by priority
-                        uasort( $section['settings'], array( $this, "themehunk_megamenu_compare_elems" ) );
+        <?php 
+        // order the fields by priority
+        uasort( $section['settings'], array( $this, "themehunk_megamenu_compare_elems" ) );
+        
+        foreach ( $section['settings'] as $group_id => $group ) : ?>
+        
+            <tr class="mega-<?php echo esc_attr($group_id); ?>">
 
-                        foreach ( $section['settings'] as $group_id => $group ) {
+                <?php if ( isset( $group['settings'] ) ) : ?>
+                    <td class="mega-name">
+                        <?php echo esc_html($group['title']); ?>
+                        <div class="mega-description"><?php echo esc_html($group['description']); ?></div>
+                    </td>
+                    <td class="mega-value">
+                        
+                        <?php foreach ( $group['settings'] as $setting_id => $setting ) : ?>
+                            <label class="mega-<?php echo esc_attr($setting['key']); ?>" <?php if ( isset( $setting['validation'] ) ) : ?>data-validation="<?php echo esc_attr($setting['validation']); ?>"<?php endif; ?>>
+                                <span class="mega-short-desc"><?php echo esc_html($setting['title']); ?></span>
+                                <?php switch ( $setting['type'] ) :
+                                    case "freetext":
+                                        $this->themehunk_megamenu_print_theme_freetext_option( $setting['key'] );
+                                        break;
+                                    case "number":
+                                        $this->themehunk_megamenu_print_theme_number_option( $setting['key'] );
+                                        break;
+                                    case "textarea":
+                                        $this->themehunk_megamenu_print_theme_textarea_option( $setting['key'] );
+                                        break;
+                                    case "align":
+                                        $this->themehunk_megamenu_print_theme_align_option( $setting['key'] );
+                                        break;
+                                    case "checkbox":
+                                        $this->themehunk_megamenu_print_theme_checkbox_option( $setting['key'] );
+                                        break;
+                                    case "arrow":
+                                        $this->themehunk_megamenu_print_theme_arrow_option( $setting['key'] );
+                                        break;
+                                    case "toggleicon":
+                                        $this->themehunk_megamenu_print_theme_toggle_icon_option( $setting['key'] );
+                                        break;
+                                    case "color":
+                                        $this->themehunk_megamenu_print_theme_color_option( $setting['key'] );
+                                        break;
+                                    case "weight":
+                                        $this->print_theme_weight_option( $setting['key'] );
+                                        break;
+                                    case "font":
+                                        $this->print_theme_font_option( $setting['key'] );
+                                        break;
+                                    case "transform":
+                                        $this->print_theme_transform_option( $setting['key'] );
+                                        break;
+                                    case "decoration":
+                                        $this->print_theme_text_decoration_option( $setting['key'] );
+                                        break;
+                                    case "mobile_columns":
+                                        $this->print_theme_mobile_columns_option( $setting['key'] );
+                                        break;
+                                    case "copy_color":
+                                        $this->print_theme_copy_color_option( $setting['key'] );
+                                        break;
+                                    default:
+                                        do_action( "megamenu_print_theme_option_{$setting['type']}", $setting['key'], $this->id );
+                                        break;
+                                endswitch; ?>
 
-                            echo "<tr class='mega-{$group_id}'>";
+                            </label>
+                        <?php endforeach; ?>
 
-                            if ( isset( $group['settings'] ) ) {
+                        <?php if ( isset( $group['info'] ) ) : 
+                            foreach ( $group['info'] as $paragraph ) : ?>
+                                <div class="mega-info"><?php echo esc_html($paragraph); ?></div>
+                            <?php endforeach; 
+                        endif; ?>
 
-                                echo "<td class='mega-name'>" . $group['title'] . "<div class='mega-description'>" . $group['description'] . "</div></td>";
-                                echo "<td class='mega-value'>";
-
-                                foreach ( $group['settings'] as $setting_id => $setting ) {
-
-                                    if ( isset( $setting['validation'] ) ) {
-                                        echo "<label class='mega-{$setting['key']}' data-validation='{$setting['validation']}'>";
+                        <?php foreach ( $group['settings'] as $setting_id => $setting ) : 
+                            if ( isset( $setting['validation'] ) ) : ?>
+                                <div class="mega-validation-message mega-validation-message-mega-<?php echo esc_attr($setting['key']); ?>">
+                                    <?php
+                                    if ( $setting['validation'] == 'int' ) {
+                                        $message = __("Enter a whole number (e.g. 1, 5, 100, 999)");
+                                    } elseif ( $setting['validation'] == 'px' ) {
+                                        $message = __("Enter a value including a unit (e.g. 10px, 10rem, 10%)");
+                                    } elseif ( $setting['validation'] == 'numb' ) {
+                                        $message = __("Enter a value including an Integer or Float type");
+                                    } elseif ( $setting['validation'] == 'float' ) {
+                                        $message = __("Enter a valid number (e.g. 0.1, 1, 10, 999)");
+                                    }
+                                    if ( strlen( $setting['title'] ) ) {
+                                        echo esc_html($setting['title'] . ": " . $message);
                                     } else {
-                                        echo "<label class='mega-{$setting['key']}'>";
+                                        echo esc_html($message);
                                     }
-                                    echo "<span class='mega-short-desc'>{$setting['title']}</span>";
+                                    ?>
+                                </div>
+                            <?php endif; 
+                        endforeach; ?>
+                    </td>
+                <?php else : ?>
+                    <td colspan="2"><h5><?php echo esc_attr($group['title']); ?></h5></td>
+                <?php endif; ?>
 
-                                    switch ( $setting['type'] ) {
-                                        case "freetext":
-                                            $this->themehunk_megamenu_print_theme_freetext_option( $setting['key'] );
-                                            break;
-                                        case "number":
-                                            $this->themehunk_megamenu_print_theme_number_option( $setting['key'] );
-                                            break;    
-                                        case "textarea":
-                                            $this->themehunk_megamenu_print_theme_textarea_option( $setting['key'] );
-                                            break;
-                                        case "align":
-                                            $this->themehunk_megamenu_print_theme_align_option( $setting['key'] );
-                                            break;
-                                        case "checkbox":
-                                            $this->themehunk_megamenu_print_theme_checkbox_option( $setting['key'] );
-                                            break;
-                                        case "arrow":
-                                            $this->themehunk_megamenu_print_theme_arrow_option( $setting['key'] );
-                                            break;
-                                        case "toggleicon":
-                                            $this->themehunk_megamenu_print_theme_toggle_icon_option( $setting['key'] );
-                                            break;
-                                        case "color":
-                                            $this->themehunk_megamenu_print_theme_color_option( $setting['key'] );
-                                            break;
-                                        case "weight":
-                                            $this->print_theme_weight_option( $setting['key'] );
-                                            break;
-                                        case "font":
-                                            $this->print_theme_font_option( $setting['key'] );
-                                            break;
-                                        case "transform":
-                                            $this->print_theme_transform_option( $setting['key'] );
-                                            break;
-                                        case "decoration":
-                                            $this->print_theme_text_decoration_option( $setting['key'] );
-                                            break;
-                                        case "mobile_columns":
-                                            $this->print_theme_mobile_columns_option( $setting['key'] );
-                                            break;
-                                        case "copy_color":
-                                            $this->print_theme_copy_color_option( $setting['key'] );
-                                            break;
-                                        default:
-                                            do_action("megamenu_print_theme_option_{$setting['type']}", $setting['key'], $this->id );
-                                            break;
-                                    }
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+<?php endforeach; ?>
 
-                                    echo "</label>";
-
-                                }
-
-                                if ( isset( $group['info'] ) ) {
-                                    foreach ( $group['info'] as $paragraph ) {
-                                        echo "<div class='mega-info'>{$paragraph}</div>";
-                                    }
-                                }
-
-                                foreach ( $group['settings'] as $setting_id => $setting ) {
-                                    if ( isset( $setting['validation'] ) ) {
-
-                                        echo "<div class='mega-validation-message mega-validation-message-mega-{$setting['key']}'>";
-
-                                        if ( $setting['validation'] == 'int' ) {
-                                            $message = __("Enter a whole number (e.g. 1, 5, 100, 999)");
-                                        }
-
-                                        if ( $setting['validation'] == 'px' ) {
-                                            $message = __("Enter a value including a unit (e.g. 10px, 10rem, 10%)");
-                                        }
-                                        if ( $setting['validation'] == 'numb' ) {
-                                            $message = __("Enter a value including a Integer or Float type");
-                                        }
-
-                                        if ( $setting['validation'] == 'float' ) {
-                                            $message = __("Enter a valid number (e.g. 0.1, 1, 10, 999)");
-                                        }
-
-                                        if ( strlen( $setting['title'] ) ) {
-                                            echo $setting['title'] . ": " . $message;
-                                        } else {
-                                            echo $message;
-                                        }
-
-                                        echo "</div>";
-                                    }
-                                }
-
-                                echo "</td>";
-                            } else {
-                                echo "<td colspan='2'><h5>{$group['title']}</h5></td>";
-                            }
-
-                            echo "</tr>";
-
-                        }
-
-                        echo "</table>";
-                        echo "</div>";
-                    }
-
-                    ?>
                  <div class='megamenu_submit'>
                     <div class='mega_left'>
                         <?php submit_button(); ?><span class='spinner'></span>
                     </div>
                     <div class='mega_right'>
-                            <a class='reset confirm' href='<?php echo $reset_url; ?>'><?php _e("Reset Option", "themehunk-megamenu"); ?></a>
+                            <a class='reset confirm' href='<?php echo esc_url($reset_url); ?>'><?php _e("Reset Option", "themehunk-megamenu"); ?></a>
                     </div>
                 </div>
                    <?php $this->themehunk_megamenu_show_cache_warning(); ?>
@@ -1034,9 +1028,9 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
             <ul class='ul-disc'>
                 <?php
-                    foreach ( $active_plugins as $name ) {
-                        echo "<li>" . $name . "</li>";
-                    }
+                    foreach ( $active_plugins as $name ) {?>
+                        <li><?php echo esc_html($name);?></li>
+                   <?php  }
                 ?>
             </ul>
 
@@ -1078,10 +1072,12 @@ class ThemeHunk_MegaMenu_Menu_Settings {
     public function themehunk_megamenu_print_theme_freetext_option( $key ) {
 
         $value = $this->active_theme[$key];
+        
+        ?>
 
-        echo "<input class='mega-setting-{$key}' type='text' name='settings[$key]' value='{$value}' />";
+        <input class='mega-setting-<?php echo esc_attr($key); ?>' type='text' name='settings[<?php echo esc_attr($key); ?>]' value='<?php echo esc_attr($value); ?>' />
 
-    }
+   <?php }
     /**
      * Print a number input
      *
@@ -1092,10 +1088,11 @@ class ThemeHunk_MegaMenu_Menu_Settings {
     public function themehunk_megamenu_print_theme_number_option( $key ) {
 
         $value = $this->active_theme[$key];
+        ?>
 
-        echo "<input class='mega-setting-{$key}' type='number' name='settings[$key]' value='{$value}' />";
+       <input class='mega-setting-<?php echo esc_attr($key); ?>' type='number' name='settings[<?php echo esc_attr($key); ?>]' value='<?php echo esc_attr($value); ?>' />
 
-    }
+       <?php  }
     /**
      * Print a colorpicker
      *
@@ -1117,9 +1114,10 @@ class ThemeHunk_MegaMenu_Menu_Settings {
             $value_text = $value;
         }
 
-        echo "<input type='text' class='color_picker' name='settings[$key]' value='{$value}' style='background:{$value}' />";
+       ?>
+       <input type='text' class='color_picker' name='settings[<?php echo esc_attr($key); ?>]' value='<?php echo esc_attr($value); ?>' style='background:<?php echo esc_attr($value); ?>' />
 
-    }
+     <?php }
     /**
      * Print a select dropdown with left, center and right options
      *
@@ -1154,8 +1152,8 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         ?>
 
-            <input type='hidden' name='checkboxes[<?php echo $key ?>]' />
-            <input type='checkbox' name='settings[<?php echo $key ?>]' <?php checked( $value, 'on' ); ?> />
+            <input type='hidden' name='checkboxes[<?php echo esc_attr($key); ?>]' />
+            <input type='checkbox' name='settings[<?php echo esc_attr($key); ?>]' <?php checked( $value, 'on' ); ?> />
 
         <?php
     }
@@ -1170,7 +1168,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         $value = $this->active_theme[$key];
         ?>
-        <textarea id='codemirror' name='settings[<?php echo $key ?>]'><?php echo stripslashes( $value ) ?></textarea>
+        <textarea id='codemirror' name='settings[<?php echo esc_attr($key); ?>]'><?php echo stripslashes( $value ) ?></textarea>
         <?php
     }
     /**
@@ -1219,19 +1217,14 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         $themehunk_megamenu_arrow_icons = $this->themehunk_megamenu_arrow_icons();
 
         ?>
-            <select class='icon_dropdown' name='settings[<?php echo $key ?>]'>
-                <?php
-
-                    echo "<option value='disabled'>" . __("Disabled", "themehunk-megamenu") . "</option>";
-                    foreach ($themehunk_megamenu_arrow_icons as $code => $class) {
+            <select class='icon_dropdown' name='settings[<?php echo esc_attr($key); ?>]'>
+                    <option value='disabled'><?php __("Disabled", "themehunk-megamenu");?></option>
+                    <?php foreach ($themehunk_megamenu_arrow_icons as $code => $class) {
                         $name = str_replace('dashicons-', '', $class);
-                        $name = ucwords(str_replace(array('-','arrow'), ' ', $name));
-                        echo "<option data-class='{$class}' value='{$code}' " . selected( $value, $code, false ) . ">" . $name . "</option>";
-                    }
-
-                ?>
+                        $name = ucwords(str_replace(array('-','arrow'), ' ', $name));?>
+                        <option data-class='<?php echo esc_attr($class);?>' value='<?php echo esc_attr($code);?>'<?php echo selected( $value, $code, false );?>><?php echo esc_html($name); ?></option>
+                   <?php }?>
             </select>
-
         <?php
     }
  public function themehunk_megamenu_toggle_icons() {
@@ -1273,18 +1266,14 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         ?>
             <select class='icon_dropdown' name='settings[<?php echo esc_attr($key); ?>]'>
-                <?php
-
-                    echo "<option value='disabled'>" . __("Disabled", "themehunk-megamenu") . "</option>";
-                    foreach ($themehunk_megamenu_toggle_icons as $code => $class) {
+               <option value='disabled'><?php __("Disabled", "themehunk-megamenu");?></option>
+                   <?php foreach ($themehunk_megamenu_toggle_icons as $code => $class) {
                         $name = str_replace('dashicons-', '', $class);
-                        $name = ucwords(str_replace(array('-','icon'), ' ', $name));
-                        echo "<option data-class='{$class}' value='{$code}' " . selected( $value, $code, false ) . ">" . $name . "</option>";
-                    }
-
+                        $name = ucwords(str_replace(array('-','icon'), ' ', $name));?>
+                        <option data-class='<?php echo esc_attr($class);?>' value='<?php echo esc_attr($code);?>' <?php echo selected( $value, $code, false );?>><?php echo esc_html($name);?></option>
+                   <?php  }
                 ?>
             </select>
-
         <?php
     }
 
@@ -1297,9 +1286,10 @@ class ThemeHunk_MegaMenu_Menu_Settings {
      * @since 2.1
      */
     private function themehunk_megamenu_compare_elems( $elem1, $elem2 ) {
-
-        return $elem1['priority'] > $elem2['priority'];
-
+        if ( $elem1['priority'] == $elem2['priority'] ) {
+            return 0;
+        }
+        return ( $elem1['priority'] > $elem2['priority'] ) ? 1 : -1;
     }
 
 }
