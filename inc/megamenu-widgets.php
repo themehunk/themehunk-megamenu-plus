@@ -147,7 +147,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
             $nonce = wp_create_nonce('megamenu_save_widget_' . $widget_id);  
             $id_base = isset( $control['id_base'] ) ? $control['id_base'] : $control['id']; 
             ?>
-            <div id="widget-<?php echo $widget_id; ?>" class="widget"  data-item-key-id="<?php
+            <div id="widget-<?php echo esc_attr($widget_id); ?>" class="widget"  data-item-key-id="<?php
             echo esc_attr($widget_key_id); ?>">
                 <div class="widget-top">
 
@@ -262,11 +262,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
             $callback = $wp_registered_widgets[$id]['callback'];
 
             if ( is_callable( $callback ) ) {
-                ob_start();
-                echo '<div id="'.$wp_registered_widgets[$id]['id'].'" class="navmenu-widget-wrapper" >';
-                call_user_func_array( $callback, $params );
-                echo '</div >';
-                return ob_get_clean();
+                ob_start();?>
+                <div id="<?php echo esc_attr($wp_registered_widgets[$id]['id']);?>" class="navmenu-widget-wrapper" >
+                <?php call_user_func_array( $callback, $params );?>
+               </div >
+                <?php return ob_get_clean();
             }
         }
 
