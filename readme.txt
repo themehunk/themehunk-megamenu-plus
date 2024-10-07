@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu
 Requires at least: 5.5
 Tested up to: 6.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` dire
 4. Mega Menu Builder
 
 == Changelog ==
+= 1.1.1 =
+* Fix : nonce issue fix.
+
 = 1.1.0 =
 * Fix : nonce issue fix.
 * Style: style issue fixed.
