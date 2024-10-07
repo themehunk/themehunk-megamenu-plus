@@ -122,19 +122,18 @@ class ThemeHunk_MegaMenu_Walker extends Walker_Nav_Menu
         $st_megamenu.="#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget{text-align:center!important}";
         }elseif( $themehunk_megamenu_widget_content_alignment=='right'){
         $st_megamenu.="#themehunk-megamenu-menu-item-$this->item_ID.themehunk-megamenu-is-megamenu .themehunk-megamenu-mmth-type-widget{text-align:right!important}";
-        }
-        $stylemegamenu.="<style type='text/css'>";
-        $stylemegamenu.= $st_megamenu;
-        $stylemegamenu.="</style>";
-        echo $stylemegamenu;
+        }?>
 
+        <style type='text/css'>
+        <?php echo $st_megamenu;?>
+        </style>
+        <?php 
         }
         // $this->themehunk_megamenu_megamenu_render_css($stylemegamenu);  
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<ul class=\"mega-sub-menu-themehunk-megamenu depth-$depth  $data_alignment $themehunk_megamenu_endtoend \" $style  >\n";    
         
-        
-    }
+     }
     /**
      * Ends the list of after the elements are added.
      *

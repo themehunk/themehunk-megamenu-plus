@@ -317,22 +317,23 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                 <div class='megamenu_header_left'>
                     <h2><?php esc_html_e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>
                     <div class='version'>
-                        <?php
+                    <?php
+                        $total = count( $versions );
+                        $count = 0;
+                        $separator = ' - ';
 
-                            $total = count( $versions );
-                            $count = 0;
-                            $separator = ' - ';
+                        foreach ( $versions as $id => $data ) {
+                            // Escape output for safe HTML display
+                            echo esc_html( $data['text'] ) . ": <b>" . esc_html( $data['version'] ) . "</b>";
 
-                            foreach ( $versions as $id => $data ) {
-                                echo $data['text'] . ": <b>" . $data['version'] . "</b>";
+                            $count++;
 
-                                $count = $count + 1;
-
-                                if ( $total > 0 && $count != $total ) {
-                                    echo $separator;
-                                }
+                            if ( $total > 0 && $count != $total ) {
+                                echo esc_html( $separator );
                             }
+                        }
                         ?>
+
                     </div>
                 </div>
             </div>
@@ -858,8 +859,9 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                         )
 
 
-           ));
-                            echo "<h2 class='nav-tab-wrapper'>";
+           ));?>
+                            <h2 class='nav-tab-wrapper'>
+                                <?php
                                   
                             $is_first = true;
 
@@ -870,11 +872,11 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                     $is_first = false;
                                 } else {
                                     $active = '';
-                                }
+                                }?>
 
-                                echo "<a class='mega-tab nav-tab {$active}' data-tab='mega-tab-content-{$section_id}'>".esc_html($section['title']) . "</a>";
+                                <a class='mega-tab nav-tab <?php echo esc_attr($active);?>' data-tab='mega-tab-content-<?php echo esc_attr($section_id);?>'> <?php echo esc_html($section['title']);?></a>
 
-                            }?>
+                           <?php } ?>
                             </h2>
 <?php foreach ( $settings as $section_id => $section ) : 
     $is_first = true;
