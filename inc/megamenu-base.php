@@ -44,6 +44,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		public function themehunk_megamenu_scripts(){
 			wp_enqueue_style( 'themehunk-megamenu-style', THEMEHUNK_MEGAMENU_URL. '/assets/css/megamenu.css' );
 			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THEMEHUNK_MEGAMENU_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
+			wp_enqueue_style( 'dashicons' );
 			wp_enqueue_script( 'hoverIntent' );
 			wp_enqueue_script( 'themehunk-megamenu-script', THEMEHUNK_MEGAMENU_URL. '/assets/js/megamenu.js', 
 				array(
