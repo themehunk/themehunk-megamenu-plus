@@ -65,6 +65,8 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 		public function themehunk_megamenu_admin_scripts(){
 			wp_enqueue_style( 'themehunk-megamenu-admin-style', THEMEHUNK_MEGAMENU_URL. '/assets/css/megamenu-admin.css' );
 			wp_enqueue_style('themehunk-megamenu-fontawesome_css_admin', THEMEHUNK_MEGAMENU_URL .'lib/font-awesome-4.7.0/css/font-awesome.min.css', false, '4.7.0');
+			wp_enqueue_style( 'themehunk-pickr-nano', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/css/nano.min.css', false, THEMEHUNK_MEGAMENU_VERSION );
+			wp_enqueue_script( 'themehunk-pickr-js', THEMEHUNK_MEGAMENU_URL . 'lib/pickr/js/pickr.min.js', array( 'jquery' ), THEMEHUNK_MEGAMENU_VERSION, true );
 			
 			wp_enqueue_script( 'wp-color-picker-alpha', THEMEHUNK_MEGAMENU_URL .'lib/wpcolorpicker-alpha.js', array('wp-color-picker', 'jquery'), '1.2.2', true);
 			wp_enqueue_media();
@@ -74,7 +76,8 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 	            'jquery-ui-core',
 	            'jquery-ui-sortable',
 	            'jquery-ui-accordion',
-	        	'wp-color-picker')
+	        	'wp-color-picker',
+        	'themehunk-pickr-js')
 	        );
   
 	        wp_localize_script('themehunk-megamenu-admin-script', 'themehunk_megamenu_obj', 

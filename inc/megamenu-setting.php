@@ -315,26 +315,33 @@ class ThemeHunk_MegaMenu_Menu_Settings {
         <div class='megamenu_outer_wrap'>
              <div class='megamenu_header'>
                 <div class='megamenu_header_left'>
-                    <h2><?php esc_html_e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>
-                    <div class='version'>
-                    <?php
-                        $total = count( $versions );
-                        $count = 0;
-                        $separator = ' - ';
-
-                        foreach ( $versions as $id => $data ) {
-                            // Escape output for safe HTML display
-                            echo esc_html( $data['text'] ) . ": <b>" . esc_html( $data['version'] ) . "</b>";
-
-                            $count++;
-
-                            if ( $total > 0 && $count != $total ) {
-                                echo esc_html( $separator );
-                            }
-                        }
-                        ?>
-
+                    <div class='megamenu_header_logo'>
+                        <span class='dashicons dashicons-tagcloud'></span>
                     </div>
+                    <div>
+                        <h2><?php esc_html_e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>
+                        <div class='version'>
+                        <?php
+                            $total = count( $versions );
+                            $count = 0;
+                            $separator = ' &nbsp;|&nbsp; ';
+
+                            foreach ( $versions as $id => $data ) {
+                                echo esc_html( $data['text'] ) . ": <b>" . esc_html( $data['version'] ) . "</b>";
+                                $count++;
+                                if ( $total > 0 && $count != $total ) {
+                                    echo $separator;
+                                }
+                            }
+                        ?>
+                        </div>
+                    </div>
+                </div>
+                <div class='megamenu_header_right'>
+                    <a href='<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>'>
+                        <span class='dashicons dashicons-menu'></span>
+                        <?php esc_html_e( 'Manage Menus', 'themehunk-megamenu' ); ?>
+                    </a>
                 </div>
             </div>
              <div class='megamenu_wrap'>
@@ -878,33 +885,37 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
                            <?php } ?>
                             </h2>
-<?php foreach ( $settings as $section_id => $section ) : 
+<?php foreach ( $settings as $section_id => $section ) :
     $is_first = true;
     $display = $is_first ? 'block' : 'none';
     $is_first = false;
 ?>
 
 <div class="mega-tab-content mega-tab-content-<?php echo esc_attr($section_id); ?>" style="display: <?php echo esc_attr($display); ?>">
-    <table class="<?php echo esc_attr($section_id); ?>">
+    <div class="th-settings-list <?php echo esc_attr($section_id); ?>">
 
-        <?php 
-        // order the fields by priority
+        <?php
         uasort( $section['settings'], array( $this, "themehunk_megamenu_compare_elems" ) );
-        
+
         foreach ( $section['settings'] as $group_id => $group ) : ?>
-        
-            <tr class="mega-<?php echo esc_attr($group_id); ?>">
+
+            <div class="th-setting-row mega-<?php echo esc_attr($group_id); ?>">
 
                 <?php if ( isset( $group['settings'] ) ) : ?>
-                    <td class="mega-name">
-                        <?php echo esc_html($group['title']); ?>
-                        <div class="mega-description"><?php echo esc_html($group['description']); ?></div>
-                    </td>
-                    <td class="mega-value">
-                        
+
+                    <div class="th-setting-label mega-name">
+                        <span class="th-setting-title"><?php echo esc_html($group['title']); ?></span>
+                        <?php if ( ! empty( $group['description'] ) ) : ?>
+                            <span class="mega-description"><?php echo esc_html($group['description']); ?></span>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="th-setting-control mega-value">
                         <?php foreach ( $group['settings'] as $setting_id => $setting ) : ?>
                             <label class="mega-<?php echo esc_attr($setting['key']); ?>" <?php if ( isset( $setting['validation'] ) ) : ?>data-validation="<?php echo esc_attr($setting['validation']); ?>"<?php endif; ?>>
-                                <span class="mega-short-desc"><?php echo esc_html($setting['title']); ?></span>
+                                <?php if ( ! empty( $setting['title'] ) ) : ?>
+                                    <span class="mega-short-desc"><?php echo esc_html($setting['title']); ?></span>
+                                <?php endif; ?>
                                 <?php switch ( $setting['type'] ) :
                                     case "freetext":
                                         $this->themehunk_megamenu_print_theme_freetext_option( $setting['key'] );
@@ -952,17 +963,16 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                         do_action( "megamenu_print_theme_option_{$setting['type']}", $setting['key'], $this->id );
                                         break;
                                 endswitch; ?>
-
                             </label>
                         <?php endforeach; ?>
 
-                        <?php if ( isset( $group['info'] ) ) : 
+                        <?php if ( isset( $group['info'] ) ) :
                             foreach ( $group['info'] as $paragraph ) : ?>
                                 <div class="mega-info"><?php echo esc_html($paragraph); ?></div>
-                            <?php endforeach; 
+                            <?php endforeach;
                         endif; ?>
 
-                        <?php foreach ( $group['settings'] as $setting_id => $setting ) : 
+                        <?php foreach ( $group['settings'] as $setting_id => $setting ) :
                             if ( isset( $setting['validation'] ) ) : ?>
                                 <div class="mega-validation-message mega-validation-message-mega-<?php echo esc_attr($setting['key']); ?>">
                                     <?php
@@ -982,16 +992,20 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                                     }
                                     ?>
                                 </div>
-                            <?php endif; 
+                            <?php endif;
                         endforeach; ?>
-                    </td>
+                    </div>
+
                 <?php else : ?>
-                    <td colspan="2"><h5><?php echo esc_attr($group['title']); ?></h5></td>
+                    <div class="th-setting-divider-label">
+                        <h5><?php echo esc_html($group['title']); ?></h5>
+                    </div>
                 <?php endif; ?>
 
-            </tr>
+            </div>
+
         <?php endforeach; ?>
-    </table>
+    </div>
 </div>
 <?php endforeach; ?>
 
@@ -1000,7 +1014,10 @@ class ThemeHunk_MegaMenu_Menu_Settings {
                         <?php submit_button(); ?><span class='spinner'></span>
                     </div>
                     <div class='mega_right'>
-                            <a class='reset confirm' href='<?php echo esc_url($reset_url); ?>'><?php _e("Reset Option", "themehunk-megamenu"); ?></a>
+                            <a class='reset confirm' href='<?php echo esc_url($reset_url); ?>'>
+                                <span class='dashicons dashicons-update'></span>
+                                <?php esc_html_e("Reset to Defaults", "themehunk-megamenu"); ?>
+                            </a>
                     </div>
                 </div>
                    <?php $this->themehunk_megamenu_show_cache_warning(); ?>

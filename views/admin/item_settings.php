@@ -457,33 +457,13 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 						  	</td>
 						  	<td class="mmth-sett-optn">
 						  		<label class="themehunk-megamenu-pannel-alignment">
-									<div class="mmth-radio-selector">
-										
-									    <input id="left" type="radio" name="mmth-widget-content-alignment" value="left" />
-										<label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'left' ? 'active' : ''; ?>" 
-      style="background-image: url('<?php echo esc_url(defined('THEMEHUNK_MEGAMENU_ALIGN_LEFT') ? THEMEHUNK_MEGAMENU_ALIGN_LEFT : ''); ?>');" 
-      for="left">
-</label>
-
-
-
-                                        <input id="center" type="radio" name="mmth-widget-content-alignment" value="center" />
-									    <label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'center' ? 'active' : ''; ?>" 
-      style="background-image: url('<?php echo esc_url(defined('THEMEHUNK_MEGAMENU_ALIGN_CENTER') ? THEMEHUNK_MEGAMENU_ALIGN_CENTER : ''); ?>');" 
-      for="center">
-</label>
-
-
-
-									    <input id="right" type="radio" name="mmth-widget-content-alignment" value="right" /> 
-									    <label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'right' ? 'active' : ''; ?>" 
-      style="background-image: url('<?php echo esc_url(defined('THEMEHUNK_MEGAMENU_ALIGN_RIGHT') ? THEMEHUNK_MEGAMENU_ALIGN_RIGHT : ''); ?>');" 
-      for="right">
-</label>
-
-
-
-									    
+									<div class="mmth-radio-selector mmth-align-selector">
+									    <input id="mmth-align-left" type="radio" name="mmth-widget-content-alignment" value="left" <?php checked( isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) ? $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] : '', 'left' ); ?> />
+									    <label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'left' ? 'active' : ''; ?>" for="mmth-align-left"><span class="dashicons dashicons-editor-alignleft"></span></label>
+									    <input id="mmth-align-center" type="radio" name="mmth-widget-content-alignment" value="center" <?php checked( isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) ? $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] : '', 'center' ); ?> />
+									    <label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'center' ? 'active' : ''; ?>" for="mmth-align-center"><span class="dashicons dashicons-editor-aligncenter"></span></label>
+									    <input id="mmth-align-right" type="radio" name="mmth-widget-content-alignment" value="right" <?php checked( isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) ? $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] : '', 'right' ); ?> />
+									    <label class="radio-cc <?php echo isset($mmth_builder_option['themehunk_megamenu_widget_content_alignment']) && $mmth_builder_option['themehunk_megamenu_widget_content_alignment'] === 'right' ? 'active' : ''; ?>" for="mmth-align-right"><span class="dashicons dashicons-editor-alignright"></span></label>
 									 </div>
 						  	   </label>
 						  	</td>
@@ -552,7 +532,7 @@ define('THEMEHUNK_MEGAMENU_ALIGN_RIGHT', THEMEHUNK_MEGAMENU_URL . 'assets/images
 	                        <?php foreach ($dashicons as $di_key => $di_name){
 	                            $selected_icon = ($current_icon == 'dashicons '.$di_key) ? 'themehunk-megamenu-icon-selected' :'';?>
 	                            <a href='javascript:;' class='themehunk-megamenu-icons <?php echo esc_attr($selected_icon);?> ' data-icon='dashicons <?php echo esc_attr($di_key);?>' title='<?php echo esc_attr($di_name);?>'>
-	                            <i class='dashicons <?php echo esc_attr($di_key);?>'></i></a>";
+	                            <i class='dashicons <?php echo esc_attr($di_key);?>'></i></a>
 	                        <?php  }
 	                        ?>
 	                    </div>
