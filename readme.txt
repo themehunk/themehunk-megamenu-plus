@@ -1,10 +1,10 @@
-====== Easy Mega Menu Plugin for WordPress - ThemeHunk ========
+====== Easy Mega Menu for WordPress - ThemeHunk ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu
 Requires at least: 5.5
-Tested up to: 6.8.1
-Stable tag: 1.1.3
+Tested up to: 6.9
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,13 @@ Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` dire
 4. Mega Menu Builder
 
 == Changelog ==
+= 1.2.0 =
+* Fix: Save button overlap and design issue fixed — removed conflicting old CSS, reset p.submit wrapper width, unified purple gradient style.
+* Fix: Mobile menu background color not applying on frontend due to hardcoded #0073aa and hardcoded menu ID.
+* Fix: Desktop menu hover background and color hardcoded (#0073aa, #fff) — now uses $menu_link_hvr_bg_color and $menu_hvr_color variables.
+* Feature: MegaMenu active/inactive badge highlight on admin menu items with live toggle update.
+* Feature: Quick-delete button on widget title bar — remove widget without expanding.
+
 = 1.1.3 =
 * Fix: Saving indicator (loader) now shows correctly when adding a column, row, or deleting a row.
 * Fix: Loader CSS specificity issue fixed — active saving indicator now displays as inline-flex with correct position in header.
@@ -59,7 +66,6 @@ Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` dire
 * Feature: Badge class updates live when MegaMenu toggle is switched without page reload.
 * Style: MegaMenu badge redesigned — pill shape, grid icon, gradient on active state.
 * Style: Admin settings page header icon changed from tagcloud to layout (dashicons-layout).
-* Style: WordPress admin sidebar menu icon updated to match settings header icon.
 
 = 1.1.2 =
 * Update : Dashicon Enque.
