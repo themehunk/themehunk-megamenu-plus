@@ -19,6 +19,7 @@
             $this.resetconfirm();
             $this.setting_save();
             $this.setting_validation();
+            $this.live_preview();
 
         },
         setting_validation: function (){
@@ -164,6 +165,50 @@
 			             return confirm(themehunk_megamenu_options.confirm);
 			    });
 			},
+         live_preview: function() {
+            var previewMap = {
+                'menu_bg_color':              function(v) { $('#mmth-preview-menubar').css('background', v); },
+                'menu_link_color':            function(v) { $('.mmth-preview-menu-item:not(.mmth-preview-item-active)').css('color', v); },
+                'menu_hvr_color':             function(v) { $('.mmth-preview-item-active').css('color', v); },
+                'menu_link_bg_color':         function(v) { $('.mmth-preview-menu-item:not(.mmth-preview-item-active)').css('background', v); },
+                'menu_link_hvr_bg_color':     function(v) { $('.mmth-preview-item-active').css('background', v); },
+                'menu_padding_top':           function(v) { $('.mmth-preview-menu-item').css('padding-top', v + 'px'); },
+                'menu_padding_bottom':        function(v) { $('.mmth-preview-menu-item').css('padding-bottom', v + 'px'); },
+                'menu_padding_left':          function(v) { $('.mmth-preview-menu-item').css('padding-left', v + 'px'); },
+                'menu_padding_right':         function(v) { $('.mmth-preview-menu-item').css('padding-right', v + 'px'); },
+                'toggle_bg_color':            function(v) { $('#mmth-preview-toggle-bar').css('background', v); },
+                'toggle_text_clr':            function(v) { $('#mmth-preview-toggle-text').css('color', v); },
+                'toggle_icon_clr':            function(v) { $('#mmth-preview-toggle-icon').css('color', v); },
+                'toggle_bar_height':          function(v) { $('#mmth-preview-toggle-bar').css('height', parseInt(v) + 'px'); },
+                'mobile_menu_bg_color':       function(v) { $('#mmth-preview-mobile-menu').css('background', v); },
+                'mobile_menu_link_color':     function(v) { $('.mmth-preview-mobile-item:not(.mmth-preview-mobile-item-active)').css('color', v); },
+                'mobile_menu_hvr_link_color': function(v) { $('.mmth-preview-mobile-item-active').css('color', v); },
+                'mobile_menu_link_bg_color':  function(v) { $('.mmth-preview-mobile-item:not(.mmth-preview-mobile-item-active)').css('background', v); },
+                'mobile_menu_hvr_bg_color':   function(v) { $('.mmth-preview-mobile-item-active').css('background', v); },
+            };
+
+            function applyPreview(inputEl) {
+                var name = $(inputEl).attr('name');
+                if (!name) return;
+                var match = name.match(/^settings\[(.+)\]$/);
+                if (!match) return;
+                var key = match[1];
+                if (previewMap[key]) {
+                    previewMap[key]($(inputEl).val());
+                }
+            }
+
+            // Color picker inputs fire change after Pickr updates val
+            $(document).on('change', 'input.color_picker', function() {
+                applyPreview(this);
+            });
+
+            // Number inputs update on typing
+            $(document).on('input change', 'input.mega-setting-menu_padding_top, input.mega-setting-menu_padding_bottom, input.mega-setting-menu_padding_left, input.mega-setting-menu_padding_right, input.mega-setting-toggle_bar_height', function() {
+                applyPreview(this);
+            });
+        },
+
          setting_save: function () {
 
 					$(".theme_editor").on("submit", function(e) {

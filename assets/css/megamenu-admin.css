@@ -1,6 +1,103 @@
 
 /* Admin side Mega Menu styling */
 
+/* ===== Live Preview Panel ===== */
+
+/* Push settings content left to leave room for the fixed preview panel */
+#mmth-live-preview-panel {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.10);
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    position: fixed;
+    right: 20px;
+    top: 120px;
+    width: 270px;
+    z-index: 99;
+}
+.mmth-preview-header {
+    align-items: center;
+    background: linear-gradient(135deg, #6d28d9, #4f46e5);
+    color: #fff;
+    display: flex;
+    font-size: 13px;
+    font-weight: 600;
+    gap: 6px;
+    padding: 10px 16px;
+}
+.mmth-preview-header .dashicons {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+}
+.mmth-preview-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 14px;
+}
+.mmth-preview-section {
+    width: 100%;
+}
+.mmth-preview-section-title {
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+/* Desktop menu bar preview */
+#mmth-preview-menubar {
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 40px;
+    overflow: hidden;
+}
+.mmth-preview-menu-item {
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+}
+/* Mobile toggle bar preview */
+#mmth-preview-toggle-bar {
+    align-items: center;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    min-width: 160px;
+    padding: 0 14px;
+    transition: background .2s, height .2s;
+}
+#mmth-preview-toggle-icon {
+    font-size: 20px;
+}
+#mmth-preview-toggle-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+/* Mobile menu preview */
+#mmth-preview-mobile-menu {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    overflow: hidden;
+}
+.mmth-preview-mobile-item {
+    cursor: default;
+    font-size: 13px;
+    padding: 10px 14px;
+    transition: background .2s, color .2s;
+}
+/* ===== End Live Preview Panel ===== */
+
 /************Clearings*********/
 
 .toplevel_page_themehunkmegamenu #wpcontent{

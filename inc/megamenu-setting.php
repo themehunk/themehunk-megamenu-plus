@@ -1009,6 +1009,47 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 </div>
 <?php endforeach; ?>
 
+<!-- Live Preview Panel -->
+<div id="mmth-live-preview-panel">
+    <div class="mmth-preview-header">
+        <span class="dashicons dashicons-visibility"></span>
+        <?php esc_html_e('Live Preview', 'themehunk-megamenu'); ?>
+    </div>
+    <div class="mmth-preview-columns">
+        <!-- Desktop Menu Bar -->
+        <div class="mmth-preview-section">
+            <div class="mmth-preview-section-title"><?php esc_html_e('Menu Bar', 'themehunk-megamenu'); ?></div>
+            <div id="mmth-preview-menubar" style="background:<?php echo esc_attr($this->active_theme['menu_bg_color']); ?>;">
+                <span class="mmth-preview-menu-item"
+                      style="background:<?php echo esc_attr($this->active_theme['menu_link_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['menu_link_color']); ?>;padding:<?php echo esc_attr($this->active_theme['menu_padding_top']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_right']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_bottom']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_left']); ?>px;">Home</span>
+                <span class="mmth-preview-menu-item mmth-preview-item-active"
+                      style="background:<?php echo esc_attr($this->active_theme['menu_link_hvr_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['menu_hvr_color']); ?>;padding:<?php echo esc_attr($this->active_theme['menu_padding_top']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_right']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_bottom']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_left']); ?>px;">About &#9662;</span>
+                <span class="mmth-preview-menu-item"
+                      style="background:<?php echo esc_attr($this->active_theme['menu_link_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['menu_link_color']); ?>;padding:<?php echo esc_attr($this->active_theme['menu_padding_top']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_right']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_bottom']); ?>px <?php echo esc_attr($this->active_theme['menu_padding_left']); ?>px;">Contact</span>
+            </div>
+        </div>
+
+        <!-- Mobile Toggle Bar -->
+        <div class="mmth-preview-section">
+            <div class="mmth-preview-section-title"><?php esc_html_e('Mobile Toggle', 'themehunk-megamenu'); ?></div>
+            <div id="mmth-preview-toggle-bar" style="background:<?php echo esc_attr($this->active_theme['toggle_bg_color']); ?>;height:<?php echo esc_attr($this->active_theme['toggle_bar_height']); ?>px;">
+                <span id="mmth-preview-toggle-icon" class="dashicons dashicons-menu" style="color:<?php echo esc_attr($this->active_theme['toggle_icon_clr']); ?>;"></span>
+                <span id="mmth-preview-toggle-text" style="color:<?php echo esc_attr($this->active_theme['toggle_text_clr']); ?>;"><?php echo esc_html($this->active_theme['toggle_text']); ?></span>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mmth-preview-section">
+            <div class="mmth-preview-section-title"><?php esc_html_e('Mobile Menu', 'themehunk-megamenu'); ?></div>
+            <div id="mmth-preview-mobile-menu" style="background:<?php echo esc_attr($this->active_theme['mobile_menu_bg_color']); ?>;">
+                <span class="mmth-preview-mobile-item" style="background:<?php echo esc_attr($this->active_theme['mobile_menu_link_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['mobile_menu_link_color']); ?>;">Home</span>
+                <span class="mmth-preview-mobile-item mmth-preview-mobile-item-active" style="background:<?php echo esc_attr($this->active_theme['mobile_menu_hvr_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['mobile_menu_hvr_link_color']); ?>;">About &#9662;</span>
+                <span class="mmth-preview-mobile-item" style="background:<?php echo esc_attr($this->active_theme['mobile_menu_link_bg_color']); ?>;color:<?php echo esc_attr($this->active_theme['mobile_menu_link_color']); ?>;">Services</span>
+            </div>
+        </div>
+    </div>
+</div>
+
                  <div class='megamenu_submit'>
                     <div class='mega_left'>
                         <?php submit_button(); ?><span class='spinner'></span>
