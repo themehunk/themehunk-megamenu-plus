@@ -6,7 +6,15 @@ class ThemeHunk_MegaMenu_Nav_Menu_Settings {
     
     public function __construct() {
         add_action( 'load-nav-menus.php', array( $this, 'themehunk_megamenu_add_metabox_to_nav_menu_settings' ) );
-        add_action('wp_ajax_themehunk_megamenu_nav_menu_save', array($this, 'themehunk_megamenu_nav_menu_save'));
+        add_action( 'wp_ajax_themehunk_megamenu_nav_menu_save', array( $this, 'themehunk_megamenu_nav_menu_save' ) );
+        add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'themehunk_megamenu_item_active_field' ), 10, 2 );
+    }
+
+    public function themehunk_megamenu_item_active_field( $item_id, $item ) {
+        $status = get_post_meta( $item_id, 'themehunk_megamenu_item_megamenu_status', true );
+        if ( $status === 'active' ) {
+            echo '<span class="mmth-megamenu-is-active" style="display:none;"></span>';
+        }
     }
 
     public function themehunk_megamenu_add_metabox_to_nav_menu_settings() {

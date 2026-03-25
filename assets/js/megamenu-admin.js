@@ -8,7 +8,7 @@
       
         function themehunk_megamenu_saving_indicator( method ) {
             if (method == 'show'){
-                $('#mmth-saving-indicator').show();
+                $('#mmth-saving-indicator').css('display', 'inline-flex');
             }else if(method =='hide'){
                 $('#mmth-saving-indicator').fadeOut();
             }
@@ -55,6 +55,7 @@
 	            },
 	            success: function (response) {
 	            	// initiate_sortable();
+	                themehunk_megamenu_saving_indicator('hide');
 	                $('.themehunk-megamenu-item-settings-content').html( response );
                     $('.themehunk-megamenu-item-settings-heading').text( menu_item_title );
                     begin_sorting();
@@ -123,6 +124,7 @@
                 
                 var current_rows = $('#themehunk_megamenu_item_layout_wrap .themehunk-megamenu-row').length;
 
+                themehunk_megamenu_saving_indicator('show');
                 $.ajax({
                     url : themehunk_megamenu_obj.ajax_url,
                     type : 'post',
@@ -130,7 +132,7 @@
                         action : 'themehunk_megamenu_save_layout',
                         layout_format: layout_format,
                         layout_name: layout_name,
-                        current_rows:current_rows, 
+                        current_rows:current_rows,
                         menu_item_id : menu_item_id,
                         menu_id : menu_id,
                         themehunk_megamenu_nonce: themehunk_megamenu_obj.themehunk_megamenu_nonce
@@ -139,14 +141,14 @@
                         console.log(response.data);
                         themehunk_megamenu_ajax_request_load_menu_item_settings (menu_item_id, 0, menu_id);
                     }
-                }); 
+                });
 
                 layout_selector.closest('.menu-layout-wrapper').hide();
         } 
 
         function themehunk_megamenu_delete_row( delete_button ){
             var button_clicked = delete_button ;
-            var menu_item_id = $('.themehunk-megamenu-status-hidden').val(); 
+            var menu_item_id = $('.themehunk-megamenu-status-hidden').val();
             var row_id = parseInt( button_clicked.closest('.themehunk-megamenu-row').data('row-id'));
             var data = {
                 action: 'themehunk_megamenu_delete_row',
@@ -154,10 +156,12 @@
                 row_id: row_id,
                 themehunk_megamenu_nonce: themehunk_megamenu_obj.themehunk_megamenu_nonce
             };
+            themehunk_megamenu_saving_indicator('show');
             $.post(ajaxurl, data, function (response) {
                 if (response.success){
                     button_clicked.closest('.themehunk-megamenu-row').remove();
                 }
+                themehunk_megamenu_saving_indicator('hide');
             });
         }
 
@@ -331,7 +335,11 @@
         //Add a button above every menu item in the admin area
 		$('#menu-to-edit li.menu-item').each(function() {
 	        var menu_item = $(this);
-	        var button = $("<span>").addClass("megamenu_themehunk_megamenu_begin").html( themehunk_megamenu_obj.mmth_begin_text );
+	        var is_active = $(this).find('.mmth-megamenu-is-active').length > 0;
+	        var button = $("<span>")
+	            .addClass("megamenu_themehunk_megamenu_begin")
+	            .addClass( is_active ? 'mmth-megamenu-badge-active' : 'mmth-megamenu-badge-inactive' )
+	            .html( themehunk_megamenu_obj.mmth_begin_text );
 	        $('.item-title', menu_item).append(button);
 	    });
 
@@ -378,6 +386,7 @@
             var menu_item_id = $('.themehunk-megamenu-status-hidden').val();     
             var row_id = parseInt($(this).closest('.themehunk-megamenu-row').attr('data-row-id'));
 
+            themehunk_megamenu_saving_indicator('show');
             $.ajax({
                 url: themehunk_megamenu_obj.ajax_url,
                 type: 'post',
@@ -605,10 +614,19 @@
 				if( response.data.themehunk_megamenu_item_megamenu_status == 'active' ){
 					$('#themehunk-megamenu-status-chkbox').prop("checked", true );
                     $('.themehunk-megamenu-status-text').addClass("active");
-					
+                    var $li = $('#menu-item-' + menu_item_id);
+                    if ( ! $li.find('.mmth-megamenu-is-active').length ) {
+                        $li.append('<span class="mmth-megamenu-is-active" style="display:none;"></span>');
+                    }
+                    $li.find('.megamenu_themehunk_megamenu_begin')
+                        .removeClass('mmth-megamenu-badge-inactive').addClass('mmth-megamenu-badge-active');
 				}else if( response.data.themehunk_megamenu_item_megamenu_status == 'inactive' ) {
 					$('#themehunk-megamenu-status-chkbox').prop("checked", false );
                     $('.themehunk-megamenu-status-text').removeClass("active");
+                    var $li = $('#menu-item-' + menu_item_id);
+                    $li.find('.mmth-megamenu-is-active').remove();
+                    $li.find('.megamenu_themehunk_megamenu_begin')
+                        .removeClass('mmth-megamenu-badge-active').addClass('mmth-megamenu-badge-inactive');
 				}
 				themehunk_megamenu_saving_indicator('hide');
 			}
@@ -682,6 +700,31 @@
         $(document).on('click', '.widget-controls a.close', function(e){
             e.preventDefault();
             $(this).closest('.widget').find('.widget-inside').slideUp();
+        });
+
+        /**
+         * Quick-delete button on widget title bar (no need to expand)
+         */
+        $(document).on('click', '.mmth-widget-quick-delete', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            var menu_item_id = $('.themehunk-megamenu-status-hidden').val();
+            var widget_wrap   = $(this).closest('.widget');
+            var widget_key_id = widget_wrap.data('item-key-id');
+            var row_id = parseInt($(this).closest('.themehunk-megamenu-row').data('row-id'));
+            var col_id = parseInt($(this).closest('.themehunk-megamenu-col').data('col-id'));
+            themehunk_megamenu_saving_indicator('show');
+            var form_data = widget_wrap.find('form').serialize()
+                + '&action=themehunk_megamenu_delete_widget'
+                + '&menu_item_id=' + menu_item_id
+                + '&widget_key_id=' + widget_key_id
+                + '&row_id=' + row_id
+                + '&col_id=' + col_id
+                + '&themehunk_megamenu_nonce=' + themehunk_megamenu_obj.themehunk_megamenu_nonce;
+            $.post(themehunk_megamenu_obj.ajax_url, form_data, function (response) {
+                widget_wrap.hide();
+                themehunk_megamenu_saving_indicator('hide');
+            });
         });
 
         /**

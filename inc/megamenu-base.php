@@ -80,13 +80,13 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
         	'themehunk-pickr-js')
 	        );
   
-	        wp_localize_script('themehunk-megamenu-admin-script', 'themehunk_megamenu_obj', 
-	        	array( 
-	        		'ajax_url' => admin_url('admin-ajax.php'), 
+	        wp_localize_script('themehunk-megamenu-admin-script', 'themehunk_megamenu_obj',
+	        	array(
+	        		'ajax_url' => admin_url('admin-ajax.php'),
 	        		'themehunk_megamenu_nonce'    => wp_create_nonce('themehunk_megamenu_check_security'),
-	        		'no_column_space_error' => __( 'There is not enough space in this row to add a new column.', 'themehunk-megamenu' ), 
-	        		'mmth_begin_text' => __( 'ThemeHunk MegaMenu', 'themehunk-megamenu' )
-	        	) 
+	        		'no_column_space_error' => __( 'There is not enough space in this row to add a new column.', 'themehunk-megamenu' ),
+	        		'mmth_begin_text' => __( 'ThemeHunk MegaMenu', 'themehunk-megamenu' ),
+	        	)
 	        );
 		}
 			/**

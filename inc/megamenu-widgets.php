@@ -156,7 +156,9 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
                             <span class="screen-reader-text"><?php printf( __( 'Edit widget: %s','themehunk-megamenu' ), $control['name'] ); ?></span>
                             <span class="toggle-indicator" aria-hidden="true"></span>
                         </button>
-
+                        <button type="button" class="mmth-widget-quick-delete" title="<?php esc_attr_e('Remove', 'themehunk-megamenu'); ?>">
+                            <span class="dashicons dashicons-no-alt"></span>
+                        </button>
                     </div>
                     <div class="widget-title">
                         <h3><?php echo esc_html($control['name']); ?><span class="in-widget-title"></span></h3>
