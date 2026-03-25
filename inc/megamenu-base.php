@@ -85,7 +85,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Base')) {
 	        		'ajax_url' => admin_url('admin-ajax.php'),
 	        		'themehunk_megamenu_nonce'    => wp_create_nonce('themehunk_megamenu_check_security'),
 	        		'no_column_space_error' => __( 'There is not enough space in this row to add a new column.', 'themehunk-megamenu' ),
-	        		'mmth_begin_text' => __( 'ThemeHunk MegaMenu', 'themehunk-megamenu' ),
+	        		'mmth_begin_text' => __( 'TH MegaMenu', 'themehunk-megamenu' ),
 	        	)
 	        );
 		}

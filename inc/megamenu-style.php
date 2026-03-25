@@ -417,7 +417,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                 z-index: 9999999999;
             }
             $nav_wrapper_id .mega-menu-themehunk-megamenu-toggle + $themehunk_megamenu_nav_menu_id{
-                background:#0073aa;
+                background:$mobile_menu_bg_color;
                 padding: 0px 0px 0px 0px;
                 display: none;
             }
@@ -541,7 +541,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
             display:block;
             }
 
-            $nav_wrapper_id .mega-menu-themehunk-megamenu-toggle + #themehunk-megamenu-menu-1{
+            $nav_wrapper_id .mega-menu-themehunk-megamenu-toggle + $themehunk_megamenu_nav_menu_id{
               background:$mobile_menu_bg_color;
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id li.themehunk-megamenu-menu-item{

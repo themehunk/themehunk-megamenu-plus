@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: mega menu, mobile menu, woocommerce menu, responsive menu, megamenu
 Requires at least: 5.5
 Tested up to: 6.8.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,16 @@ Just upload the `themehunk-megamenu-plus.zip` to the `/wp-content/plugins/` dire
 4. Mega Menu Builder
 
 == Changelog ==
+= 1.1.3 =
+* Fix: Saving indicator (loader) now shows correctly when adding a column, row, or deleting a row.
+* Fix: Loader CSS specificity issue fixed — active saving indicator now displays as inline-flex with correct position in header.
+* Feature: Drag-and-drop widget add with one-click remove button on widget title bar (no need to expand widget).
+* Feature: MegaMenu active/inactive badge highlight on admin menu items — active shows purple, inactive shows muted gray.
+* Feature: Badge class updates live when MegaMenu toggle is switched without page reload.
+* Style: MegaMenu badge redesigned — pill shape, grid icon, gradient on active state.
+* Style: Admin settings page header icon changed from tagcloud to layout (dashicons-layout).
+* Style: WordPress admin sidebar menu icon updated to match settings header icon.
+
 = 1.1.2 =
 * Update : Dashicon Enque.
 

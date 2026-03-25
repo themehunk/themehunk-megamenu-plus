@@ -53,7 +53,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
 
         $svg = '';
 
-        $icon = 'dashicons-tagcloud';
+        $icon = 'dashicons-layout';
 
         $page = add_menu_page( __('TH MegaMenu', 'themehunk-megamenu'), __('TH MegaMenu', 'themehunk-megamenu'), 'edit_theme_options', 'themehunkmegamenu', array($this, 'page'), $icon );
 
@@ -316,7 +316,7 @@ class ThemeHunk_MegaMenu_Menu_Settings {
              <div class='megamenu_header'>
                 <div class='megamenu_header_left'>
                     <div class='megamenu_header_logo'>
-                        <span class='dashicons dashicons-tagcloud'></span>
+                        <span class='dashicons dashicons-layout'></span>
                     </div>
                     <div>
                         <h2><?php esc_html_e("ThemeHunk MegaMenu", "themehunk-megamenu"); ?></h2>

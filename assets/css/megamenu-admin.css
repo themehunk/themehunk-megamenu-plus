@@ -6,6 +6,10 @@
 .toplevel_page_themehunkmegamenu #wpcontent{
     padding-left: 0;
 }
+.CodeMirror {
+    text-align: left;
+    width: 500px;
+}
 .clear{
     clear: both;
 }
@@ -21,48 +25,57 @@ padding:7px 30px;
 }
 /***Admin side menu items**/
 
-#menu-to-edit li.menu-item .megamenu_themehunk_megamenu_begin:before{
+/* MegaMenu badge icon */
+#menu-to-edit li.menu-item .megamenu_themehunk_megamenu_begin:before {
     font-family: dashicons;
-    content: "\f111";
-    font-size: 10px;
-    margin-right: 2px;
+    content: "\f319";
+    font-size: 12px;
+    margin-right: 4px;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
+    line-height: 1;
 }
 
+/* MegaMenu badge base */
 #menu-to-edit li.menu-item .megamenu_themehunk_megamenu_begin {
-    background: #4CAF50;
-    border-radius: 2px;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    background: #6d28d9;
+    border-radius: 20px;
+    color: #fff;
     cursor: pointer;
-    display: inline-block;
-    font-size: 0.8em;
-    font-weight: normal;
-    height: auto;
-    margin-left: 10px;
-        opacity: 0.3;
-    padding: 2px 5px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    margin-left: 8px;
+    opacity: 0.35;
+    padding: 2px 9px 2px 6px;
     position: relative;
-    transition: all 0.3s ease 0s;
-    width: auto;
+    transition: opacity .2s, background .2s, box-shadow .2s;
+    vertical-align: middle;
+    white-space: nowrap;
     z-index: 1;
-
 }
 #menu-to-edit li.menu-item .menu-item-bar .menu-item-handle:hover .megamenu_themehunk_megamenu_begin {
-    opacity: 1;
+    opacity: 0.7;
 }
 
-/* MegaMenu active badge — highlighted */
+/* Active — full purple, fully visible */
 #menu-to-edit li.menu-item .menu-item-bar .megamenu_themehunk_megamenu_begin.mmth-megamenu-badge-active {
-    background: #7c3aed;
+    background: linear-gradient(90deg, #6d28d9 0%, #4f46e5 100%);
     opacity: 1 !important;
-    box-shadow: 0 1px 4px rgba(124,58,237,.35);
+    box-shadow: 0 1px 5px rgba(109,40,217,.4);
+}
+#menu-to-edit li.menu-item .menu-item-bar .menu-item-handle:hover .megamenu_themehunk_megamenu_begin.mmth-megamenu-badge-active {
+    box-shadow: 0 2px 8px rgba(109,40,217,.55);
+    opacity: 1 !important;
 }
 
-/* MegaMenu inactive badge — muted */
+/* Inactive — gray, clearly muted */
 #menu-to-edit li.menu-item .menu-item-bar .megamenu_themehunk_megamenu_begin.mmth-megamenu-badge-inactive {
-    background: #9e9e9e;
-    opacity: 0.45 !important;
+    background: #a0aec0;
+    opacity: 0.5 !important;
+    box-shadow: none;
 }
 
 #menu-to-edit li.menu-item .menu-item-bar .item-title{
@@ -1880,17 +1893,24 @@ input.button-primary.mmth-builder-options-submit:hover {
     z-index: 1;
 }
 .megamenu_header_logo {
-    width: 44px;
-    height: 44px;
-    background: rgba(255,255,255,.18);
-    border-radius: 12px;
+    width: 46px;
+    height: 46px;
+    background: rgba(255,255,255,.22);
+    border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 26px;
     color: #fff;
-    border: 1px solid rgba(255,255,255,.25);
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 2px 8px rgba(0,0,0,.15);
     flex-shrink: 0;
+}
+.megamenu_header_logo .dashicons {
+    width: 26px;
+    height: 26px;
+    font-size: 26px;
+    line-height: 1;
 }
 .megamenu_header_left h2 {
     color: #fff !important;
