@@ -66,7 +66,7 @@ class ThemeHunk_MegaMenu
 
             $last_updated = themehunk_megamenu_menu_get_last_updated_theme();
 
-            $preselected_theme = isset( $this->themes[ $last_updated ] ) ? $last_updated : 'default';
+            $preselected_theme = isset( $settings[ $last_updated ] ) ? $last_updated : 'default';
 
             $theme_id = isset( $_GET['theme'] ) ? sanitize_text_field( $_GET['theme'] ) : $preselected_theme;
 

@@ -68,7 +68,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
 
              $last_updated = themehunk_megamenu_menu_get_last_updated_theme();
 
-             $preselected_theme = isset( $this->themes[ $last_updated ] ) ? $last_updated : 'default';
+             $preselected_theme = isset( $settings[ $last_updated ] ) ? $last_updated : 'default';
 
              $theme_id = isset( $_GET['theme'] ) ? sanitize_text_field( $_GET['theme'] ) : $preselected_theme;
 
@@ -171,7 +171,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                             clear: both;
                         }
                         $nav_wrapper_id {
-                            background: #222;
+                            background: $menu_bg_color;
                         }
                         $nav_wrapper_id {
                             border-radius: 0;
@@ -252,11 +252,10 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                         }
 
                        $nav_wrapper_id  $themehunk_megamenu_nav_menu_id > li.themehunk-megamenu-menu-item > a.themehunk-megamenu-menu-link:hover {
-                            background: #0073aa;
-                            color: #fff;
+                            background: $menu_link_hvr_bg_color;
+                            color: $menu_hvr_color;
                             font-weight: normal;
                             text-decoration: none;
-                            border-color: #fff;
                         }
                        $nav_wrapper_id  $themehunk_megamenu_nav_menu_id a.themehunk-megamenu-menu-link{
                             cursor: pointer;
@@ -506,7 +505,7 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Style')) {
                 padding: 0 10px;
                 background: transparent;
                 text-align: left;
-                color: #fff;
+                color: $mobile_menu_link_color;
                 font-size: 14px;
             }
             $nav_wrapper_id $themehunk_megamenu_nav_menu_id > li.themehunk-megamenu-menu-item-has-children > a.themehunk-megamenu-menu-link > span.mega-indicator {
