@@ -216,6 +216,11 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          */
         public function themehunk_megamenu_save_widget(){
 
+            if ( ! current_user_can( 'administrator' ) ) {
+                wp_die( -1, 403 );
+            }
+            check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+
             $id_base = sanitize_text_field( $_POST['id_base'] );
             $widget_id = sanitize_text_field( $_POST['widget-id'] );
 
@@ -276,6 +281,12 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Reorder items in the widget area
          */
         public function themehunk_megamenu_reorder_items(){
+
+            if ( ! current_user_can( 'administrator' ) ) {
+                wp_die( -1, 403 );
+            }
+            check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+
             $menu_item_id = (int) sanitize_text_field($_POST['menu_item_id']);
             $row_id = (int) sanitize_text_field($_POST['row_id']);
             $col_id = (int) sanitize_text_field($_POST['col_id']);
@@ -387,6 +398,12 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Reorder row in popup builder
          */
         public function themehunk_megamenu_reorder_row(){
+
+            if ( ! current_user_can( 'administrator' ) ) {
+                wp_die( -1, 403 );
+            }
+            check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+
             $rows_order = sanitize_text_field($_POST['rows_order']);
             $rows_order = explode(',', $rows_order);
 
@@ -417,6 +434,12 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Reorder col in popup builder
          */
         public function themehunk_megamenu_reorder_col(){
+
+            if ( ! current_user_can( 'administrator' ) ) {
+                wp_die( -1, 403 );
+            }
+            check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+
             $col_order = sanitize_text_field($_POST['col_order']);
             $col_order = explode(',', $col_order);
 
@@ -449,6 +472,12 @@ if ( ! class_exists('ThemeHunk_MegaMenu_Widgets')) {
          * Add widget by drag and drop
          */
         public function themehunk_megamenu_drag_to_add_widget_item() {
+
+            if ( ! current_user_can( 'administrator' ) ) {
+                wp_die( -1, 403 );
+            }
+            check_ajax_referer( 'themehunk_megamenu_check_security', 'themehunk_megamenu_nonce' );
+
             require_once( ABSPATH . 'wp-admin/includes/widgets.php' );
             $menu_item_id = (int) sanitize_text_field($_POST['menu_item_id']);
             $row_id = (int) sanitize_text_field($_POST['row_id']);
